@@ -176,12 +176,34 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpinionatedIndividualsController.cs" />
+    <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904221903085_ModelsEstablished.cs" />
+    <Compile Include="Migrations\201904221903085_ModelsEstablished.Designer.cs">
+      <DependentUpon>201904221903085_ModelsEstablished.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221955107_RemovedUploaderTableChangesToPhotoTable.cs" />
+    <Compile Include="Migrations\201904221955107_RemovedUploaderTableChangesToPhotoTable.Designer.cs">
+      <DependentUpon>201904221955107_RemovedUploaderTableChangesToPhotoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Age.cs" />
+    <Compile Include="Models\Education.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IncomeLevel.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MaritalStatus.cs" />
+    <Compile Include="Models\OpinionatedIndividual.cs" />
+    <Compile Include="Models\OpinionatedIndividualPhoto.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\Profession.cs" />
+    <Compile Include="Models\Race.cs" />
+    <Compile Include="Models\Sex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -241,9 +263,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\OpinionatedIndividuals\Index.cshtml" />
+    <Content Include="Views\OpinionatedIndividuals\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Photos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -257,6 +282,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904221903085_ModelsEstablished.resx">
+      <DependentUpon>201904221903085_ModelsEstablished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221955107_RemovedUploaderTableChangesToPhotoTable.resx">
+      <DependentUpon>201904221955107_RemovedUploaderTableChangesToPhotoTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
