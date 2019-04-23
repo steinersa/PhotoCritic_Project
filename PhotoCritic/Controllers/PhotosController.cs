@@ -2,8 +2,10 @@
 using PhotoCritic.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,9 +24,22 @@ namespace PhotoCritic.Controllers
         }
 
         // GET: Photos/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var categories = db.Categories.ToList();
+            Photo photo = db.Photos.Find(id);
+            {
+                photo.Categories = categories;
+            };
+            if (photo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(photo);
         }
 
         // GET: Photos/Create
@@ -62,47 +77,64 @@ namespace PhotoCritic.Controllers
         }
 
         // GET: Photos/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var categories = db.Categories.ToList();
+            Photo photo = db.Photos.Find(id);
+            {
+                photo.Categories = categories;
+            };
+            if (photo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(photo);
         }
 
         // POST: Photos/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,ApplicationId,ImageName,ImagePath,CategoryId,Hidden,CommentsEnabled,TotalLikes,TotalDislikes,ImageFile")] Photo photo)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(photo).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(photo);
         }
 
         // GET: Photos/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Photo photo = db.Photos.Find(id);
+            if (photo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(photo);
         }
 
         // POST: Photos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Photo photo = db.Photos.Find(id);
+            db.Photos.Remove(photo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
