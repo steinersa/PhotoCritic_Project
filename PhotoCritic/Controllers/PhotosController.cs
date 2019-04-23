@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using PhotoCritic.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +11,8 @@ namespace PhotoCritic.Controllers
 {
     public class PhotosController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Photos
         public ActionResult Index()
         {
@@ -23,23 +28,35 @@ namespace PhotoCritic.Controllers
         // GET: Photos/Create
         public ActionResult Create()
         {
-            return View();
+            var categories = db.Categories.ToList();
+
+            Photo photo = new Photo()
+            {
+                Categories = categories
+            };
+            return View(photo);
         }
 
         // POST: Photos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,ApplicationId,ImageName,ImagePath,CategoryId,Hidden,CommentsEnabled,TotalLikes,TotalDislikes,ImageFile")] Photo photo)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            photo.ApplicationId = User.Identity.GetUserId();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            string fileName = Path.GetFileNameWithoutExtension(photo.ImageFile.FileName);
+            string extension = Path.GetExtension(photo.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            photo.ImagePath = "~/Image/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+            photo.ImageFile.SaveAs(fileName);
+
+            db.Photos.Add(photo);
+            db.SaveChanges();
+            ModelState.Clear();
+            return RedirectToAction("Index");
         }
 
         // GET: Photos/Edit/5

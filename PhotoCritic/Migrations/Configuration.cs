@@ -102,6 +102,15 @@ namespace PhotoCritic.Migrations
             //     new IncomeLevel { Name = "$75,000 to $99,999" },
             //     new IncomeLevel { Name = "Over $100,000" }
             //    );
+
+            //context.Categories.AddOrUpdate(
+            //     c => c.Name,
+            //     new Category { Name = "Logos" },
+            //     new Category { Name = "Food" },
+            //     new Category { Name = "People" },
+            //     new Category { Name = "Locations" },
+            //     new Category { Name = "Miscellaneous" }
+            //    );
         }
     }
 }

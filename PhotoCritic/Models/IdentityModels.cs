@@ -33,6 +33,7 @@ namespace PhotoCritic.Models
         public DbSet<OpinionatedIndividual> OpinionatedIndividuals { get; set; }
         public DbSet<OpinionatedIndividualPhoto> OpinionatedIndividualPhotos { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

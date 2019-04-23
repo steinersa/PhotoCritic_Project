@@ -17,12 +17,15 @@ namespace PhotoCritic.Models
         public string ImageName { get; set; }
 
         [Required]
-        [Display(Name = "Image Path")]
+        [Display(Name = "Upload Image")]
         public string ImagePath { get; set; }
 
         [Required]
+        [ForeignKey("Category")]
         [Display(Name = "Category")]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
 
         [Display(Name = "Image Hidden")]
         public bool Hidden { get; set; }
@@ -39,5 +42,8 @@ namespace PhotoCritic.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }
