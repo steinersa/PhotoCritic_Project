@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201904231308101_SeedingDatabase.Designer.cs">
       <DependentUpon>201904231308101_SeedingDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904231351531_RequiredAdded.cs" />
+    <Compile Include="Migrations\201904231351531_RequiredAdded.Designer.cs">
+      <DependentUpon>201904231351531_RequiredAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Age.cs" />
@@ -296,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904231308101_SeedingDatabase.resx">
       <DependentUpon>201904231308101_SeedingDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904231351531_RequiredAdded.resx">
+      <DependentUpon>201904231351531_RequiredAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,9 +1,13 @@
-﻿using PhotoCritic.Models;
+﻿using Microsoft.AspNet.Identity;
+using PhotoCritic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
 
 namespace PhotoCritic.Controllers
 {
@@ -35,17 +39,16 @@ namespace PhotoCritic.Controllers
             var maritalStatuses = db.MaritalStatuses.ToList();
             var incomeLevels = db.IncomeLevels.ToList();
 
-            OpinionatedIndividual opinionatedIndividual = new OpinionatedIndividual();
+            OpinionatedIndividual opinionatedIndividual = new OpinionatedIndividual()
             {
-                opinionatedIndividual.Ages = ages;
-                opinionatedIndividual.Sexes = sexes;
-                opinionatedIndividual.Races = races;
-                opinionatedIndividual.Locations = locations;
-                opinionatedIndividual.Educations = educations;
-                opinionatedIndividual.Professions = professions;
-                opinionatedIndividual.MaritalStatuses = maritalStatuses;
-                opinionatedIndividual.IncomeLevels = incomeLevels;
-
+                Ages = ages,
+                Sexes = sexes,
+                Races = races,
+                Locations = locations,
+                Educations = educations,
+                Professions = professions,
+                MaritalStatuses = maritalStatuses,
+                IncomeLevels = incomeLevels
             };
             return View(opinionatedIndividual);
         }

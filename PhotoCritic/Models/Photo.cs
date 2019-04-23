@@ -12,12 +12,15 @@ namespace PhotoCritic.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "Image Name")]
         public string ImageName { get; set; }
 
+        [Required]
         [Display(Name = "Image Path")]
         public string ImagePath { get; set; }
 
+        [Required]
         [Display(Name = "Category")]
         public string Category { get; set; }
 

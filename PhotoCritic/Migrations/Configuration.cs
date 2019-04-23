@@ -31,11 +31,11 @@ namespace PhotoCritic.Migrations
             //      new Age { Name = "75+" }
             //    );
 
-            // context.Sexes.AddOrUpdate(
-            //     s => s.Name,
-            //     new Sex { Name = "Male"},
-            //     new Sex { Name = "Female" }
-            //    );
+            //context.Sexes.AddOrUpdate(
+            //    s => s.Name,
+            //    new Sex { Name = "Male" },
+            //    new Sex { Name = "Female" }
+            //   );
 
             //context.Races.AddOrUpdate(
             //     r => r.Name,
@@ -49,7 +49,7 @@ namespace PhotoCritic.Migrations
 
             //context.Locations.AddOrUpdate(
             //     l => l.Name,
-            //     new Location { Name = "City"},
+            //     new Location { Name = "City" },
             //     new Location { Name = "Suburb" },
             //     new Location { Name = "Rural" }
             //    );
@@ -80,7 +80,8 @@ namespace PhotoCritic.Migrations
             //     new Profession { Name = "Information technology" },
             //     new Profession { Name = "Manufacturing" },
             //     new Profession { Name = "Sales and marketing" },
-            //     new Profession { Name = "Science and biotech" }
+            //     new Profession { Name = "Science and biotech" },
+            //     new Profession { Name = "Other" }
             //    );
 
             //context.MaritalStatuses.AddOrUpdate(
