@@ -69,7 +69,7 @@ namespace PhotoCritic.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AgeId,SexId,RaceId,LocationId,EducationId,ProfessionId,IncomeLevelId,MaritalStatusId")] OpinionatedIndividual opinionatedIndividual)
+        public ActionResult Create([Bind(Include = "Id,AgeId,SexId,RaceId,LocationId,EducationId,ProfessionId,IncomeLevelId,MaritalStatusId,ApplicationId")] OpinionatedIndividual opinionatedIndividual)
         {
             if (ModelState.IsValid)
             {

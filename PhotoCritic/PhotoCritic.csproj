@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpinionatedIndividualPhotosController.cs" />
     <Compile Include="Controllers\OpinionatedIndividualsController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,6 +225,14 @@
     <Compile Include="Migrations\201904241351249_AnimalCategoryAdded.cs" />
     <Compile Include="Migrations\201904241351249_AnimalCategoryAdded.Designer.cs">
       <DependentUpon>201904241351249_AnimalCategoryAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904241552099_TotalInteractionsAdded.cs" />
+    <Compile Include="Migrations\201904241552099_TotalInteractionsAdded.Designer.cs">
+      <DependentUpon>201904241552099_TotalInteractionsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904241947428_ForeignKeyAdded.cs" />
+    <Compile Include="Migrations\201904241947428_ForeignKeyAdded.Designer.cs">
+      <DependentUpon>201904241947428_ForeignKeyAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,6 +316,7 @@
     <Content Include="Views\Photos\Details.cshtml" />
     <Content Include="Views\Photos\Edit.cshtml" />
     <Content Include="Views\Photos\Delete.cshtml" />
+    <Content Include="Views\OpinionatedIndividualPhotos\LikeCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +368,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904241351249_AnimalCategoryAdded.resx">
       <DependentUpon>201904241351249_AnimalCategoryAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241552099_TotalInteractionsAdded.resx">
+      <DependentUpon>201904241552099_TotalInteractionsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241947428_ForeignKeyAdded.resx">
+      <DependentUpon>201904241947428_ForeignKeyAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

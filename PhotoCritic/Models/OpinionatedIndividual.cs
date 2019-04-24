@@ -67,5 +67,9 @@ namespace PhotoCritic.Models
         public int IncomeLevelId { get; set; }
         public IncomeLevel IncomeLevel { get; set; }
         public IEnumerable<IncomeLevel> IncomeLevels { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

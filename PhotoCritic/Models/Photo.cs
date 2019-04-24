@@ -39,6 +39,9 @@ namespace PhotoCritic.Models
         [Display(Name = "Total Dislikes")]
         public int? TotalDislikes { get; set; }
 
+        [Display(Name = "Total Interactions")]
+        public int? TotalInteractions { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
