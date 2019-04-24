@@ -16,10 +16,19 @@ namespace PhotoCritic.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Photos
-        public ActionResult Index()
+        public ActionResult Index(string categorySelectionForMe)
         {
             var userResult = User.Identity.GetUserId();
-            var myPhotos = db.Photos.Where(x => userResult == x.ApplicationId).ToList();
+            var categories = db.Categories.Select(x => x.Name);
+            ViewBag.categorySelectionForMe = new SelectList(categories);
+
+            if (!string.IsNullOrEmpty(categorySelectionForMe))
+            {
+                var photosInCategory = db.Photos.Where(x => x.Category.Name.Contains(categorySelectionForMe) && userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
+                return View(photosInCategory);
+            }
+
+            var myPhotos = db.Photos.Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
             return View(myPhotos);
         }
 
