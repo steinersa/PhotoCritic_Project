@@ -18,7 +18,9 @@ namespace PhotoCritic.Controllers
         // GET: OpinionatedIndividuals
         public ActionResult Index()
         {
-            return View();
+            var userResult = User.Identity.GetUserId();
+            var recentImages = db.Photos.Where(x => userResult != x.ApplicationId).ToList();
+            return View(recentImages);
         }
 
         // GET: OpinionatedIndividuals/Details/5

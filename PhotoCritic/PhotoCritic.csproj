@@ -209,6 +209,18 @@
     <Compile Include="Migrations\201904231618343_Update.Designer.cs">
       <DependentUpon>201904231618343_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904241317024_DateStampAddedToPhoto.cs" />
+    <Compile Include="Migrations\201904241317024_DateStampAddedToPhoto.Designer.cs">
+      <DependentUpon>201904241317024_DateStampAddedToPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904241327198_ChangedDateTimeDataType.cs" />
+    <Compile Include="Migrations\201904241327198_ChangedDateTimeDataType.Designer.cs">
+      <DependentUpon>201904241327198_ChangedDateTimeDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904241339092_PhotoConstructor.cs" />
+    <Compile Include="Migrations\201904241339092_PhotoConstructor.Designer.cs">
+      <DependentUpon>201904241339092_PhotoConstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Age.cs" />
@@ -330,6 +342,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904231618343_Update.resx">
       <DependentUpon>201904231618343_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241317024_DateStampAddedToPhoto.resx">
+      <DependentUpon>201904241317024_DateStampAddedToPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241327198_ChangedDateTimeDataType.resx">
+      <DependentUpon>201904241327198_ChangedDateTimeDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241339092_PhotoConstructor.resx">
+      <DependentUpon>201904241339092_PhotoConstructor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

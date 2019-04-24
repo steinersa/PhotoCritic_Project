@@ -45,5 +45,13 @@ namespace PhotoCritic.Models
 
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
+
+        [Display(Name = "Upload Date")]
+        public DateTime WhenCreated { get; set; }
+
+        public Photo()
+        {
+            WhenCreated = DateTime.Now;
+        }
     }
 }
