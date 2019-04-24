@@ -19,7 +19,7 @@ namespace PhotoCritic.Controllers
         public ActionResult Index()
         {
             var userResult = User.Identity.GetUserId();
-            var recentImages = db.Photos.Where(x => userResult != x.ApplicationId).ToList();
+            var recentImages = db.Photos.Where(x => userResult != x.ApplicationId).OrderBy(x => x.WhenCreated).ToList();
             return View(recentImages);
         }
 

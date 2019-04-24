@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201904241339092_PhotoConstructor.Designer.cs">
       <DependentUpon>201904241339092_PhotoConstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904241351249_AnimalCategoryAdded.cs" />
+    <Compile Include="Migrations\201904241351249_AnimalCategoryAdded.Designer.cs">
+      <DependentUpon>201904241351249_AnimalCategoryAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Age.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904241339092_PhotoConstructor.resx">
       <DependentUpon>201904241339092_PhotoConstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241351249_AnimalCategoryAdded.resx">
+      <DependentUpon>201904241351249_AnimalCategoryAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
