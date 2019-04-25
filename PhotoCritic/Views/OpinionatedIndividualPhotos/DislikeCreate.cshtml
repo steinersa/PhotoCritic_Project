@@ -24,7 +24,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Not original", "Too busy", "Colors complement each other", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Not original", "Too busy", "Colors clash", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Very original", "Looks clean", "Colors complement each other", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Not original", "Too busy", "Colors clash", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Clean background", "Looks appetizing", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Distracting background", "Looks unappetizing", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Clean background", "Looks appetizing", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Distracting background", "Looks unappetizing", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Photo framed nicely", "Person is attractive", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Photo is not framed nicely", "Person is unattractive", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Photo framed nicely", "Person is attractive", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Photo is not framed nicely", "Person is unattractive", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "I want to visit!", "Good lighting", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Not a place I'd want to visit", "Bad lighting", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "I want to visit!", "Good lighting", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Not a place I'd want to visit", "Bad lighting", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Very cute", "Cool action shot", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Looks mean", "Boring", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Very cute", "Cool action shot", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Looks mean", "Boring", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Clean background", "Good lighting", "High quality image" }, Model.Reason1))
+                        @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Distracting elements", "Bad lighting", "Low quality image" }, Model.Reason1))
                         @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Clean background", "Good lighting", "High quality image" }, Model.Reason2))
+                        @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Distracting elements", "Bad lighting", "Low quality image" }, Model.Reason2))
                         @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
                     </div>
                 </div>
