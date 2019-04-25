@@ -14,47 +14,139 @@
     @Html.HiddenFor(model => model.LikeDislike)
     @Html.HiddenFor(model => model.Id)
 
-    <div class="form-horizontal">
+<div class="form-horizontal">
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        @*//if and then swtich case for categories with prefilled reasons*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Reason1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+    @{ if (ViewBag.CategoryOfPhotoForReasons == "1")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Very original", "Looks clean", "Colors complement each other", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Reason2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Very original", "Looks clean", "Colors complement each other", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-
-        @{ if (ViewBag.CommentStatus == true)
-               {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                }
-            }
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        }
+        else if (ViewBag.CategoryOfPhotoForReasons == "2")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Clean background", "Looks appetizing", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Clean background", "Looks appetizing", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.CategoryOfPhotoForReasons == "3")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Photo framed nicely", "Person is attractive", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Photo framed nicely", "Person is attractive", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.CategoryOfPhotoForReasons == "4")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "I want to visit!", "Good lighting", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "I want to visit!", "Good lighting", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else if (ViewBag.CategoryOfPhotoForReasons == "6")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Very cute", "Cool action shot", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Very cute", "Cool action shot", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason1, new SelectList(new[] { null, "Clean background", "Good lighting", "High quality image" }, Model.Reason1))
+                    @Html.ValidationMessageFor(model => model.Reason1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reason2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Reason2, new SelectList(new[] { null, "Clean background", "Good lighting", "High quality image" }, Model.Reason2))
+                    @Html.ValidationMessageFor(model => model.Reason2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+    }
+
+    @{ if (ViewBag.CommentStatus == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
+</div>
 }
 
 <div>
