@@ -31,6 +31,8 @@ namespace PhotoCritic.Controllers
             OpinionatedIndividualPhoto opinionatedIndividualPhoto = new OpinionatedIndividualPhoto();
             opinionatedIndividualPhoto.LikeDislike = true;
             opinionatedIndividualPhoto.PhotoId = id;
+            ViewBag.CommentStatus = db.Photos.Where(x => x.Id == opinionatedIndividualPhoto.PhotoId).Select(x => x.CommentsEnabled);
+
             return View(opinionatedIndividualPhoto);
         }
 
@@ -63,6 +65,8 @@ namespace PhotoCritic.Controllers
             OpinionatedIndividualPhoto opinionatedIndividualPhoto = new OpinionatedIndividualPhoto();
             opinionatedIndividualPhoto.LikeDislike = false;
             opinionatedIndividualPhoto.PhotoId = id;
+            ViewBag.CommentStatus = db.Photos.Where(x => x.Id == opinionatedIndividualPhoto.PhotoId).Select(x => x.CommentsEnabled).FirstOrDefault();
+
             return View(opinionatedIndividualPhoto);
         }
 

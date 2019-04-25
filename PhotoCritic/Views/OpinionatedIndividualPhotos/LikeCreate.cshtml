@@ -37,8 +37,8 @@
             </div>
         </div>
 
-        @*@{ if ()
-                {
+        @{ if (ViewBag.CommentStatus == true)
+               {
                     <div class="form-group">
                         @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 }
-            }*@
+            }
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
