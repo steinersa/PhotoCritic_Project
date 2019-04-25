@@ -1,0 +1,16 @@
+﻿@model PhotoCritic.Models.OpinionatedIndividualPhoto
+
+@{
+    ViewBag.Title = "Likes";
+}
+
+<h2>Likes</h2>
+
+<p> Comments:
+    @foreach (var comment in ViewBag.allComments)
+    {
+        <li>
+            @comment
+        </li>
+    }
+</p>

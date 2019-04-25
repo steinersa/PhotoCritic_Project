@@ -44,10 +44,10 @@
                     <img src="@Url.Content(item.ImagePath)" height="250" />
                 </td>
                 <td>
-                    @Html.ActionLink("Likes", "Likes", "Photos", new { id = item.Id})
+                    @Html.ActionLink("Likes", "Likes", new { id = item.Id})
                 </td>
                 <td>
-                    @Html.ActionLink("Dislikes", "Dislikes", "Photos", new { id = item.Id })
+                    @Html.ActionLink("Dislikes", "Dislikes", new { id = item.Id })
                 </td>
             </tr>
         }
