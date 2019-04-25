@@ -34,13 +34,13 @@ namespace PhotoCritic.Models
         public bool CommentsEnabled { get; set; }
 
         [Display(Name = "Total Likes")]
-        public int? TotalLikes { get; set; }
+        public int TotalLikes { get; set; }
 
         [Display(Name = "Total Dislikes")]
-        public int? TotalDislikes { get; set; }
+        public int TotalDislikes { get; set; }
 
         [Display(Name = "Total Interactions")]
-        public int? TotalInteractions { get; set; }
+        public int TotalInteractions { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
@@ -55,6 +55,9 @@ namespace PhotoCritic.Models
         public Photo()
         {
             WhenCreated = DateTime.Now;
+            TotalInteractions = 0;
+            TotalLikes = 0;
+            TotalDislikes = 0;
         }
     }
 }

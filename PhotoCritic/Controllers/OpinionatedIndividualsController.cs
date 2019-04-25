@@ -71,6 +71,7 @@ namespace PhotoCritic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,AgeId,SexId,RaceId,LocationId,EducationId,ProfessionId,IncomeLevelId,MaritalStatusId,ApplicationId")] OpinionatedIndividual opinionatedIndividual)
         {
+            opinionatedIndividual.ApplicationId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.OpinionatedIndividuals.Add(opinionatedIndividual);

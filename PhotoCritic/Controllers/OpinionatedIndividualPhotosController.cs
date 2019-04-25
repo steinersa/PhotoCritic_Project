@@ -2,6 +2,7 @@
 using PhotoCritic.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,11 +44,45 @@ namespace PhotoCritic.Controllers
             var userResult = User.Identity.GetUserId();
             var currentUser = db.OpinionatedIndividuals.Where(x => userResult == x.ApplicationId).FirstOrDefault();
             opinionatedIndividualPhoto.OpinionatedIndividualId = currentUser.Id;
+            var photoInteractedWith = db.Photos.Where(x => x.Id == opinionatedIndividualPhoto.PhotoId).FirstOrDefault();
 
             if (ModelState.IsValid)
             {
                 db.OpinionatedIndividualPhotos.Add(opinionatedIndividualPhoto);
                 db.SaveChanges();
+                AddInteractionToPhoto(photoInteractedWith, opinionatedIndividualPhoto);
+                return RedirectToAction("Index", "OpinionatedIndividuals");
+            }
+
+            return View(opinionatedIndividualPhoto);
+        }
+
+        // GET: OpinionatedIndividualPhotos/Create
+        public ActionResult DislikeCreate([Bind(Include = "Id,PhotoId,OpinionatedIndividualId,LikeDislike,Comment,Reason1,Reason2")] int id)
+        {
+            OpinionatedIndividualPhoto opinionatedIndividualPhoto = new OpinionatedIndividualPhoto();
+            opinionatedIndividualPhoto.LikeDislike = false;
+            opinionatedIndividualPhoto.PhotoId = id;
+            return View(opinionatedIndividualPhoto);
+        }
+
+        // POST: OpinionatedIndividualPhotos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DislikeCreate([Bind(Include = "Id,PhotoId,OpinionatedIndividualId,LikeDislike,Comment,Reason1,Reason2")] OpinionatedIndividualPhoto opinionatedIndividualPhoto)
+        {
+            var userResult = User.Identity.GetUserId();
+            var currentUser = db.OpinionatedIndividuals.Where(x => userResult == x.ApplicationId).FirstOrDefault();
+            opinionatedIndividualPhoto.OpinionatedIndividualId = currentUser.Id;
+            var photoInteractedWith = db.Photos.Where(x => x.Id == opinionatedIndividualPhoto.PhotoId).FirstOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                db.OpinionatedIndividualPhotos.Add(opinionatedIndividualPhoto);
+                db.SaveChanges();
+                AddInteractionToPhoto(photoInteractedWith, opinionatedIndividualPhoto);
                 return RedirectToAction("Index", "OpinionatedIndividuals");
             }
 
@@ -95,6 +130,26 @@ namespace PhotoCritic.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        public void AddInteractionToPhoto ([Bind(Include = "Id, ApplicationId, ImageName, ImagePath, CategoryId, Hidden, CommentsEnabled, TotalLikes, TotalDislikes, ImageFile, WhenCreated, TotalInteractions")] Photo photoInteractedWith, OpinionatedIndividualPhoto opinionatedIndividualPhoto)
+        {
+            if (opinionatedIndividualPhoto.LikeDislike == true)
+            {
+                photoInteractedWith.TotalLikes += 1;
+            }
+            else if (opinionatedIndividualPhoto.LikeDislike == false)
+            {
+                photoInteractedWith.TotalDislikes += 1;
+            }
+            
+            photoInteractedWith.TotalInteractions += 1;
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(photoInteractedWith).State = EntityState.Modified;
+                db.SaveChanges();
             }
         }
     }
