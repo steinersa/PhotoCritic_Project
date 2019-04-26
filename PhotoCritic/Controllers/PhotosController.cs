@@ -154,10 +154,17 @@ namespace PhotoCritic.Controllers
             }
 
             ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Comment != null).Select(x => x.Comment).ToList();
-
             ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
-            
-            return View();
+
+            //List<OpinionatedIndividual> ListOfPeople = new List<OpinionatedIndividual>();
+            //var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            //foreach (var OpId in gettingOpinionatedIndividualId)
+            //{
+            //    var gettingPerson = db.OpinionatedIndividuals.Where(x => x.Id == OpId).FirstOrDefault();
+            //    ListOfPeople.Add(gettingPerson);
+            //}
+
+            return View(/*ListOfPeople*/);
         }
     }
 }
