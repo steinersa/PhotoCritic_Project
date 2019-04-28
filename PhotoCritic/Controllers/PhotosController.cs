@@ -165,15 +165,17 @@ namespace PhotoCritic.Controllers
             var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
             foreach (var OpId in gettingOpinionatedIndividualId)
             {
-                var gettingPerson = db.OpinionatedIndividuals.Where(x => x.Id == OpId).FirstOrDefault();
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Age).Where(x => x.Id == OpId).FirstOrDefault();
                 ListOfLikers.Add(gettingPerson);
             }
 
-            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.AgeId).Select(x => new { x.Key, Count = x.Count() }); //key value pairs
-            var ageKeys = keyCountPair.Select(x => x.Key).ToArray(); //just the keys (distinct ages)
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() }); //key value pairs
+            var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); //just the keys (distinct ages)
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
 
-            new Chart(width: 300, height: 300)
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Ages")
+                .AddLegend()
                 .AddSeries(
                     chartType: "pie",
                     xValue: ageKeys,
