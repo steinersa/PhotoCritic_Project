@@ -323,6 +323,7 @@
     <Content Include="Views\OpinionatedIndividualPhotos\LikeCreate.cshtml" />
     <Content Include="Views\OpinionatedIndividualPhotos\DislikeCreate.cshtml" />
     <Content Include="Views\Photos\Likes.cshtml" />
+    <Content Include="Views\Photos\LikesCommentsReasons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

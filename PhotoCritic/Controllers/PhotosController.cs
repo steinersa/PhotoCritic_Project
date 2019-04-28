@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace PhotoCritic.Controllers
@@ -153,17 +154,41 @@ namespace PhotoCritic.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Comment != null).Select(x => x.Comment).ToList();
-            ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+            Photo photo = db.Photos.Find(id);
 
-            var ListOfPeople = new List<OpinionatedIndividual>();
+            return View(photo);
+        }
+
+        public ActionResult GetAgeChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
             var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
             foreach (var OpId in gettingOpinionatedIndividualId)
             {
                 var gettingPerson = db.OpinionatedIndividuals.Where(x => x.Id == OpId).FirstOrDefault();
-                ListOfPeople.Add(gettingPerson);
+                ListOfLikers.Add(gettingPerson);
             }
-            ViewBag.People = ListOfPeople;
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.AgeId).Select(x => new { x.Key, Count = x.Count() }); //key value pairs
+            var ageKeys = keyCountPair.Select(x => x.Key).ToArray(); //just the keys (distinct ages)
+            var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
+
+            new Chart(width: 300, height: 300)
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: ageKeys,
+                    yValues: ageCounts)
+                .Write("png");
+
+            return null;
+        }
+
+
+
+        public ActionResult LikesCommentsReasons(int id)
+        {
+            ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Comment != null).Select(x => x.Comment).ToList();
+            ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
 
             return View();
         }

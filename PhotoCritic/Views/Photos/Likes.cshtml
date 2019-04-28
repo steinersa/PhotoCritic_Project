@@ -1,4 +1,4 @@
-﻿@model PhotoCritic.Models.OpinionatedIndividualPhoto
+﻿@model PhotoCritic.Models.Photo
 
 @{
     ViewBag.Title = "Likes";
@@ -6,31 +6,12 @@
 
 <h2>Likes</h2>
 
-<p> Comments:
-    @foreach (var comment in ViewBag.allComments)
-    {
-        <li>
-            @comment
-        </li>
-    }
-</p>
+<div class="row">
+
+    <img src="@Url.Action("GetAgeChartDataLike", new { id = Model.Id})" />
+
+</div>
 
 <p>
-    Reason breakdown:
-    @foreach (var reason in ViewBag.reasons)
-    {
-        <li>
-            @reason
-        </li>
-    }
-</p>
-
-<p>
-    People:
-    @foreach (var person in ViewBag.People)
-    {
-        <li>
-            @person
-        </li>
-    }
+    @Html.ActionLink("Feedback", "LikesCommentsReasons", new { id = Model.Id })
 </p>
