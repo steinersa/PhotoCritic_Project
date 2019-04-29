@@ -1,0 +1,27 @@
+﻿@model PhotoCritic.Models.OpinionatedIndividualPhoto
+
+@{
+    ViewBag.Title = "DislikesCommentsReasons";
+}
+
+<h2>Feedback</h2>
+
+<p>
+    Comments:
+    @foreach (var comment in ViewBag.allComments)
+    {
+        <li>
+            @comment
+        </li>
+    }
+</p>
+
+<p>
+    Reason breakdown:
+    @foreach (var reason in ViewBag.reasons)
+    {
+        <li>
+            @reason
+        </li>
+    }
+</p>

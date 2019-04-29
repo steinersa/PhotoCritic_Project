@@ -174,7 +174,7 @@ namespace PhotoCritic.Controllers
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
 
             Chart Ages = new Chart(width: 300, height: 300)
-                .AddTitle("Ages")
+                .AddTitle("Age")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -185,12 +185,420 @@ namespace PhotoCritic.Controllers
             return null;
         }
 
+        public ActionResult GetSexChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Sex).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
 
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Sex).Select(x => new { x.Key, Count = x.Count() });
+            var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Sex")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: sexKeys,
+                    yValues: sexCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetRaceChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Race).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Race).Select(x => new { x.Key, Count = x.Count() });
+            var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Race")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: raceKeys,
+                    yValues: raceCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetLocationChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Location).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Location).Select(x => new { x.Key, Count = x.Count() });
+            var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Location")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: locationKeys,
+                    yValues: locationCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetEducationChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Education).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Education).Select(x => new { x.Key, Count = x.Count() });
+            var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Education")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: educationKeys,
+                    yValues: educationCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetProfessionChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Profession).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Profession).Select(x => new { x.Key, Count = x.Count() });
+            var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: professionKeys,
+                    yValues: professionCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetMaritalStatusChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.MaritalStatus).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.MaritalStatus).Select(x => new { x.Key, Count = x.Count() });
+            var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: maritalStatusKeys,
+                    yValues: maritalStatusCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetIncomeLevelChartDataLike(int id)
+        {
+            List<OpinionatedIndividual> ListOfLikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.IncomeLevel).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfLikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.IncomeLevel).Select(x => new { x.Key, Count = x.Count() });
+            var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: incomeLevelKeys,
+                    yValues: incomeLevelCounts)
+                .Write("png");
+
+            return null;
+        }
 
         public ActionResult LikesCommentsReasons(int id)
         {
             ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Comment != null).Select(x => x.Comment).ToList();
             ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+
+            return View();
+        }
+
+        public ActionResult Dislikes(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Photo photo = db.Photos.Find(id);
+
+            return View(photo);
+        }
+
+        public ActionResult GetAgeChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Age).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() });
+            var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var ageCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Age")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: ageKeys,
+                    yValues: ageCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetSexChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Sex).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Sex).Select(x => new { x.Key, Count = x.Count() });
+            var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Sex")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: sexKeys,
+                    yValues: sexCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetRaceChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Race).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Race).Select(x => new { x.Key, Count = x.Count() });
+            var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Race")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: raceKeys,
+                    yValues: raceCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetLocationChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Location).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Location).Select(x => new { x.Key, Count = x.Count() });
+            var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Location")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: locationKeys,
+                    yValues: locationCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetEducationChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Education).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Education).Select(x => new { x.Key, Count = x.Count() });
+            var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Education")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: educationKeys,
+                    yValues: educationCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetProfessionChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Profession).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Profession).Select(x => new { x.Key, Count = x.Count() });
+            var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: professionKeys,
+                    yValues: professionCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetMaritalStatusChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.MaritalStatus).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.MaritalStatus).Select(x => new { x.Key, Count = x.Count() });
+            var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: maritalStatusKeys,
+                    yValues: maritalStatusCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult GetIncomeLevelChartDataDislike(int id)
+        {
+            List<OpinionatedIndividual> ListOfDislikers = new List<OpinionatedIndividual>();
+            var gettingOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.IncomeLevel).Where(x => x.Id == OpId).FirstOrDefault();
+                ListOfDislikers.Add(gettingPerson);
+            }
+
+            var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.IncomeLevel).Select(x => new { x.Key, Count = x.Count() });
+            var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
+            var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
+
+            Chart Ages = new Chart(width: 300, height: 300)
+                .AddTitle("Locations")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: incomeLevelKeys,
+                    yValues: incomeLevelCounts)
+                .Write("png");
+
+            return null;
+        }
+
+        public ActionResult DislikesCommentsReasons(int id)
+        {
+            ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Comment != null).Select(x => x.Comment).ToList();
+            ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
 
             return View();
         }

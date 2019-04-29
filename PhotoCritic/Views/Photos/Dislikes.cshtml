@@ -1,0 +1,62 @@
+﻿@model PhotoCritic.Models.Photo
+
+@{
+    ViewBag.Title = "Dislilkes";
+}
+
+<h2>Dislikes</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetAgeChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetSexChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetRaceChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetLocationChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetEducationChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetProfessionChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p>
+            @Html.ActionLink("Feedback", "DislikesCommentsReasons", new { id = Model.Id })
+        </p>
+    </div>
+</div>
+
