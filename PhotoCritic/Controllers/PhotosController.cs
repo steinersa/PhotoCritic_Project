@@ -633,10 +633,10 @@ namespace PhotoCritic.Controllers
 
             List<OpinionatedIndividual> photoDislikeOpinionatedIndividuals = new List<OpinionatedIndividual>();
             var gettingDislikeOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
-            foreach (var OpId in gettingLikeOpinionatedIndividualId)
+            foreach (var OpId in gettingDislikeOpinionatedIndividualId)
             {
                 var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Age).Include(x => x.Sex).Include(x => x.Race).Include(x => x.Location).Include(x => x.Education).Include(x => x.Profession).Include(x => x.MaritalStatus).Include(x => x.IncomeLevel).Where(x => x.Id == OpId).FirstOrDefault();
-                photoLikeOpinionatedIndividuals.Add(gettingPerson);
+                photoDislikeOpinionatedIndividuals.Add(gettingPerson);
             }
 
             if (!string.IsNullOrEmpty(ageSelection))
