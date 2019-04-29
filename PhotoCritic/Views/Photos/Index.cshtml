@@ -25,10 +25,14 @@
                 @Html.DisplayNameFor(model => model.ImagePath)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th>
+                Details
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -37,18 +41,25 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ImageName) <br /> <br />
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <br />
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) <br />
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    @Html.ActionLink("Filter", "Filtered", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) <br />
+                    @*@Html.ActionLink("Filter", "Filtered", new { id = item.Id })*@
                 </td>
                 <td>
-                    <img src="@Url.Content(item.ImagePath)" height="250" />
+                    <img src="@Url.Content(item.ImagePath)" width="200" />
                 </td>
                 <td>
-                    @Html.ActionLink("Likes", "Likes", new { id = item.Id})
+                    @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Dislikes", "Dislikes", new { id = item.Id })
+                    Comments?
+                    @Html.DisplayFor(modelItem => item.CommentsEnabled) <br />
+                    Hidden?
+                    @Html.DisplayFor(modelItem => item.Hidden)
+                </td>
+                <td>
+                    <a href="@Url.Action("Filtered", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalInteractions) <br /> Interactions</a> <br />
+                    <a href="@Url.Action("Likes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalLikes) <br /> Likes</a>
+                    <a href="@Url.Action("Dislikes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalDislikes) <br /> Dislikes</a>
                 </td>
             </tr>
         }

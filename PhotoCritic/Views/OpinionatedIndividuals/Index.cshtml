@@ -38,13 +38,13 @@
                     @Html.DisplayFor(modelItem => item.ImageName)
                 </td>
                 <td>
-                    <img src="@Url.Content(item.ImagePath)" height="250" />
+                    <img src="@Url.Content(item.ImagePath)" width="250" />
                 </td>
                 <td>
-                    @Html.ActionLink("Like", "LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id }, null)
+                    <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default">Like</a>
                 </td>
                 <td>
-                    @Html.ActionLink("Dislike", "DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id }, null)
+                    <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default">Dislike</a>
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

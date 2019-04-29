@@ -25,11 +25,11 @@ namespace PhotoCritic.Controllers
 
             if (!string.IsNullOrEmpty(categorySelectionForMe))
             {
-                var photosInCategory = db.Photos.Where(x => x.Category.Name.Contains(categorySelectionForMe) && userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
+                var photosInCategory = db.Photos.Include(x => x.Category).Where(x => x.Category.Name.Contains(categorySelectionForMe) && userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
                 return View(photosInCategory);
             }
 
-            var myPhotos = db.Photos.Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
+            var myPhotos = db.Photos.Include(x => x.Category).Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.WhenCreated).ToList();
             return View(myPhotos);
         }
 
