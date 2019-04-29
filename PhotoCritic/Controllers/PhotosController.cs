@@ -694,15 +694,17 @@ namespace PhotoCritic.Controllers
             return View();
         }
 
-        public ActionResult CreateFilteredChart(int[] data)
+        public ActionResult GetChartData(string data)
         {
+            string[] newData = System.Web.Helpers.Json.Decode<string[]>(data);
+
             Chart Filtered = new Chart(width: 500, height: 500)
                 .AddTitle("Results")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
                     xValue: new[] { "Like", "Dislike" },
-                    yValues: data)
+                    yValues: newData)
                 .Write("png");
 
             return null;
