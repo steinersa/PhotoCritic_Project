@@ -326,6 +326,7 @@
     <Content Include="Views\Photos\LikesCommentsReasons.cshtml" />
     <Content Include="Views\Photos\Dislikes.cshtml" />
     <Content Include="Views\Photos\DislikesCommentsReasons.cshtml" />
+    <Content Include="Views\Photos\Filtered.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

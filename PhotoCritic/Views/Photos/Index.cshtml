@@ -39,6 +39,7 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <br />
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) <br />
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Filter", "Filtered", new { id = item.Id })
                 </td>
                 <td>
                     <img src="@Url.Content(item.ImagePath)" height="250" />

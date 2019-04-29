@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Filtered";
+}
+
+<h2>Filtered</h2>
+
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Select Age: @Html.DropDownList("ageSelection", "All") <br />
+        Select Sex: @Html.DropDownList("sexSelection", "All") <br />
+        Select Race: @Html.DropDownList("RaceSelection", "All") <br />
+        Select Location: @Html.DropDownList("locationSelection", "All") <br />
+        Select Education: @Html.DropDownList("educationSelection", "All") <br />
+        Select Profession: @Html.DropDownList("professionSelection", "All") <br />
+        Select Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
+        Select Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
+        <input type="submit" value="Filter" />
+    </p>
+}
+    </p>
+
+<p>
+    <img src="@Url.Action("Filtered", new { data = ViewBag.ChartYValues })" />
+</p>

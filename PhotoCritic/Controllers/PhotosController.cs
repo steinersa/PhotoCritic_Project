@@ -173,7 +173,7 @@ namespace PhotoCritic.Controllers
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); //just the keys (distinct ages)
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Age = new Chart(width: 300, height: 300)
                 .AddTitle("Age")
                 .AddLegend()
                 .AddSeries(
@@ -199,7 +199,7 @@ namespace PhotoCritic.Controllers
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Sex = new Chart(width: 300, height: 300)
                 .AddTitle("Sex")
                 .AddLegend()
                 .AddSeries(
@@ -225,13 +225,14 @@ namespace PhotoCritic.Controllers
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Race = new Chart(width: 300, height: 300)
                 .AddTitle("Race")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
                     xValue: raceKeys,
-                    yValues: raceCounts)
+                    yValues: raceCounts
+                    )
                 .Write("png");
 
             return null;
@@ -251,7 +252,7 @@ namespace PhotoCritic.Controllers
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Location = new Chart(width: 300, height: 300)
                 .AddTitle("Location")
                 .AddLegend()
                 .AddSeries(
@@ -277,7 +278,7 @@ namespace PhotoCritic.Controllers
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Education = new Chart(width: 300, height: 300)
                 .AddTitle("Education")
                 .AddLegend()
                 .AddSeries(
@@ -303,8 +304,8 @@ namespace PhotoCritic.Controllers
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+            Chart Profession = new Chart(width: 300, height: 300)
+                .AddTitle("Profession")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -329,8 +330,8 @@ namespace PhotoCritic.Controllers
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+            Chart MaritalStatus = new Chart(width: 300, height: 300)
+                .AddTitle("Marital Status")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -355,8 +356,8 @@ namespace PhotoCritic.Controllers
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+            Chart IncomeLevel = new Chart(width: 300, height: 300)
+                .AddTitle("Income Level")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -401,7 +402,7 @@ namespace PhotoCritic.Controllers
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Age = new Chart(width: 300, height: 300)
                 .AddTitle("Age")
                 .AddLegend()
                 .AddSeries(
@@ -427,7 +428,7 @@ namespace PhotoCritic.Controllers
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Sex = new Chart(width: 300, height: 300)
                 .AddTitle("Sex")
                 .AddLegend()
                 .AddSeries(
@@ -453,7 +454,7 @@ namespace PhotoCritic.Controllers
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Race = new Chart(width: 300, height: 300)
                 .AddTitle("Race")
                 .AddLegend()
                 .AddSeries(
@@ -479,7 +480,7 @@ namespace PhotoCritic.Controllers
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Location = new Chart(width: 300, height: 300)
                 .AddTitle("Location")
                 .AddLegend()
                 .AddSeries(
@@ -505,7 +506,7 @@ namespace PhotoCritic.Controllers
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Education = new Chart(width: 300, height: 300)
                 .AddTitle("Education")
                 .AddLegend()
                 .AddSeries(
@@ -531,7 +532,7 @@ namespace PhotoCritic.Controllers
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Profession = new Chart(width: 300, height: 300)
                 .AddTitle("Locations")
                 .AddLegend()
                 .AddSeries(
@@ -557,7 +558,7 @@ namespace PhotoCritic.Controllers
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart Locations = new Chart(width: 300, height: 300)
                 .AddTitle("Locations")
                 .AddLegend()
                 .AddSeries(
@@ -583,7 +584,7 @@ namespace PhotoCritic.Controllers
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Ages = new Chart(width: 300, height: 300)
+            Chart IncomeLevel = new Chart(width: 300, height: 300)
                 .AddTitle("Locations")
                 .AddLegend()
                 .AddSeries(
@@ -601,6 +602,110 @@ namespace PhotoCritic.Controllers
             ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
 
             return View();
+        }
+
+        public ActionResult Filtered(int id, string ageSelection, string sexSelection, string raceSelection, string locationSelection, string educationSelection, string professionSelection, string maritalStatusSelection, string incomeLevelSelection)
+        {
+            var ages = db.Ages.Select(x => x.Name);
+            ViewBag.ageSelection = new SelectList(ages);
+            var sexes = db.Sexes.Select(x => x.Name);
+            ViewBag.sexSelection = new SelectList(sexes);
+            var races = db.Races.Select(x => x.Name);
+            ViewBag.raceSelection = new SelectList(races);
+            var locations = db.Locations.Select(x => x.Name);
+            ViewBag.locationSelection = new SelectList(locations);
+            var educations = db.Educations.Select(x => x.Name);
+            ViewBag.educationSelection = new SelectList(educations);
+            var professions = db.Professions.Select(x => x.Name);
+            ViewBag.professionSelection = new SelectList(professions);
+            var maritalStatuses = db.MaritalStatuses.Select(x => x.Name);
+            ViewBag.maritalStatusSelection = new SelectList(maritalStatuses);
+            var incomeLevels = db.IncomeLevels.Select(x => x.Name);
+            ViewBag.incomeLevelSelection = new SelectList(incomeLevels);
+
+            List<OpinionatedIndividual> photoLikeOpinionatedIndividuals = new List<OpinionatedIndividual>();
+            var gettingLikeOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingLikeOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Age).Include(x => x.Sex).Include(x => x.Race).Include(x => x.Location).Include(x => x.Education).Include(x => x.Profession).Include(x => x.MaritalStatus).Include(x => x.IncomeLevel).Where(x => x.Id == OpId).FirstOrDefault();
+                photoLikeOpinionatedIndividuals.Add(gettingPerson);
+            }
+
+            List<OpinionatedIndividual> photoDislikeOpinionatedIndividuals = new List<OpinionatedIndividual>();
+            var gettingDislikeOpinionatedIndividualId = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false).Select(x => x.OpinionatedIndividualId).ToList();
+            foreach (var OpId in gettingLikeOpinionatedIndividualId)
+            {
+                var gettingPerson = db.OpinionatedIndividuals.Include(x => x.Age).Include(x => x.Sex).Include(x => x.Race).Include(x => x.Location).Include(x => x.Education).Include(x => x.Profession).Include(x => x.MaritalStatus).Include(x => x.IncomeLevel).Where(x => x.Id == OpId).FirstOrDefault();
+                photoLikeOpinionatedIndividuals.Add(gettingPerson);
+            }
+
+            if (!string.IsNullOrEmpty(ageSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Age.Name.Contains(ageSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Age.Name.Contains(ageSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(sexSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Sex.Name.Contains(sexSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Sex.Name.Contains(sexSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(raceSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Race.Name.Contains(raceSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Race.Name.Contains(raceSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(locationSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Location.Name.Contains(locationSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Location.Name.Contains(locationSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(educationSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Education.Name.Contains(educationSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Education.Name.Contains(educationSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(professionSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.Profession.Name.Contains(professionSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.Profession.Name.Contains(professionSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(maritalStatusSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.MaritalStatus.Name.Contains(maritalStatusSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.MaritalStatus.Name.Contains(maritalStatusSelection)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(incomeLevelSelection))
+            {
+                photoLikeOpinionatedIndividuals = photoLikeOpinionatedIndividuals.Where(x => x.IncomeLevel.Name.Contains(incomeLevelSelection)).ToList();
+                photoDislikeOpinionatedIndividuals = photoDislikeOpinionatedIndividuals.Where(x => x.IncomeLevel.Name.Contains(incomeLevelSelection)).ToList();
+            }
+
+            var countOfFilteredLikers = photoLikeOpinionatedIndividuals.Count();
+            var countOfFilteredDislikers = photoDislikeOpinionatedIndividuals.Count();
+            ViewBag.chartYValues = new int[2] { countOfFilteredLikers, countOfFilteredDislikers};
+
+            return View();
+        }
+
+        public ActionResult CreateFilteredChart(int[] data)
+        {
+            Chart Filtered = new Chart(width: 500, height: 500)
+                .AddTitle("Results")
+                .AddLegend()
+                .AddSeries(
+                    chartType: "pie",
+                    xValue: new[] { "Like", "Dislike" },
+                    yValues: data)
+                .Write("png");
+
+            return null;
         }
     }
 }
