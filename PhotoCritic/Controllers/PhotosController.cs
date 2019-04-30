@@ -533,7 +533,7 @@ namespace PhotoCritic.Controllers
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
 
             Chart Profession = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+                .AddTitle("Profession")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -559,7 +559,7 @@ namespace PhotoCritic.Controllers
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
 
             Chart Locations = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+                .AddTitle("Marital Status")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -585,7 +585,7 @@ namespace PhotoCritic.Controllers
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
 
             Chart IncomeLevel = new Chart(width: 300, height: 300)
-                .AddTitle("Locations")
+                .AddTitle("Income Level")
                 .AddLegend()
                 .AddSeries(
                     chartType: "pie",
@@ -708,6 +708,26 @@ namespace PhotoCritic.Controllers
                 .Write("png");
 
             return null;
+        }
+
+        public ActionResult Compare(string compareChoice)
+        {
+            var userResult = User.Identity.GetUserId();
+            var photoIdsToCompare = db.Photos.Where(x => userResult == x.ApplicationId && x.Compare == true).Select(x => x.Id).ToArray();
+
+            var choices = new List<string> { "Age", "Sex", "Race", "Location", "Education", "Profession", "Marital Status", "Income Level" };
+            ViewBag.compareChoice = new SelectList(choices);
+            ViewBag.choice = compareChoice;
+
+            var photoOneId = photoIdsToCompare[0];
+            ViewBag.photoOndId = photoOneId;
+            var photoTwoId = photoIdsToCompare[1];
+            ViewBag.PhotoTwoId = photoTwoId;
+
+            ViewBag.photoOneImage = db.Photos.Where(x => x.Id == photoOneId).Select(x => x.ImagePath).FirstOrDefault();
+            ViewBag.PhotoTwoImage = db.Photos.Where(x => x.Id == photoTwoId).Select(x => x.ImagePath).FirstOrDefault();
+
+            return View();
         }
     }
 }
