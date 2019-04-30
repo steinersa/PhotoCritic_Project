@@ -371,7 +371,10 @@ namespace PhotoCritic.Controllers
         public ActionResult LikesCommentsReasons(int id)
         {
             ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Comment != null).Select(x => x.Comment).ToList();
-            ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+            var reasonCountPair = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == true && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+            var reasons = reasonCountPair.Select(x => x.Key).ToArray();
+            var counts = reasonCountPair.Select(x => x.Count).ToArray();
+            ViewBag.reasonWithCount = reasons.Zip(counts, (r, c) => r + " " + "(" + c.ToString() + ")");
 
             return View();
         }
@@ -599,7 +602,10 @@ namespace PhotoCritic.Controllers
         public ActionResult DislikesCommentsReasons(int id)
         {
             ViewBag.allComments = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Comment != null).Select(x => x.Comment).ToList();
-            ViewBag.reasons = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+            var reasonCountPair = db.OpinionatedIndividualPhotos.Where(x => x.PhotoId == id && x.LikeDislike == false && x.Reason1 != null).ToList().GroupBy(a => a.Reason1).Select(a => new { a.Key, Count = a.Count() }).OrderByDescending(x => x.Count);
+            var reasons = reasonCountPair.Select(x => x.Key).ToArray();
+            var counts = reasonCountPair.Select(x => x.Count).ToArray();
+            ViewBag.reasonWithCount = reasons.Zip(counts, (r, c) => r + " " + "(" + c.ToString() + ")");
 
             return View();
         }
