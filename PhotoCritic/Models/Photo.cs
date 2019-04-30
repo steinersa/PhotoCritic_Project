@@ -33,6 +33,9 @@ namespace PhotoCritic.Models
         [Display(Name = "Enable Comments")]
         public bool CommentsEnabled { get; set; }
 
+        [Display(Name = "Compare")]
+        public bool Compare { get; set; }
+
         [Display(Name = "Total Likes")]
         public int TotalLikes { get; set; }
 
