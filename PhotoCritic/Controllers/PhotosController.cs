@@ -720,7 +720,7 @@ namespace PhotoCritic.Controllers
             ViewBag.choice = compareChoice;
 
             var photoOneId = photoIdsToCompare[0];
-            ViewBag.photoOndId = photoOneId;
+            ViewBag.photoOneId = photoOneId;
             var photoTwoId = photoIdsToCompare[1];
             ViewBag.PhotoTwoId = photoTwoId;
 

@@ -6,17 +6,221 @@
 
 <h2>Compare</h2>
 
+<br />
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Compare by: @Html.DropDownList("compareChoice")
+            <input type="submit" value="Compare" />
+        </p>
+    }
+</div>
+
+<br/>
+
 <div class="row">
     <div class="col-md-6">
-        <h2>Photo One</h2>
         <p>
-            
+            <img src="@Url.Content(ViewBag.PhotoOneImage)" height="300" />
         </p>
     </div>
     <div class="col-md-6">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p>
+            <img src="@Url.Content(ViewBag.PhotoTwoImage)" height="300" />
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <h4>Likes:</h4>
+            @{
+                if (ViewBag.choice == "Age")
+                {
+                    <img src="@Url.Action("GetAgeChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Sex")
+                {
+                    <img src="@Url.Action("GetSexChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Race")
+                {
+                    <img src="@Url.Action("GetRaceChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Location")
+                {
+                    <img src="@Url.Action("GetLocationChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Education")
+                {
+                    <img src="@Url.Action("GetEducationChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Profession")
+                {
+                    <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "MaritalStatus")
+                {
+                    <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Income Level")
+                {
+                    <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = ViewBag.photoOneId})" />
+                }
+            }
+
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <h4> </h4>
+            @{
+                if (ViewBag.choice == "Age")
+                {
+                    <img src="@Url.Action("GetAgeChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Sex")
+                {
+                    <img src="@Url.Action("GetSexChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Race")
+                {
+                    <img src="@Url.Action("GetRaceChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Location")
+                {
+                    <img src="@Url.Action("GetLocationChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Education")
+                {
+                    <img src="@Url.Action("GetEducationChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Profession")
+                {
+                    <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "MaritalStatus")
+                {
+                    <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Income Level")
+                {
+                    <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = ViewBag.photoTwoId})" />
+                }
+            }
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <h4>Dislikes:</h4>
+            @{
+                if (ViewBag.choice == "Age")
+                {
+                    <img src="@Url.Action("GetAgeChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Sex")
+                {
+                    <img src="@Url.Action("GetSexChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Race")
+                {
+                    <img src="@Url.Action("GetRaceChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Location")
+                {
+                    <img src="@Url.Action("GetLocationChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Education")
+                {
+                    <img src="@Url.Action("GetEducationChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Profession")
+                {
+                    <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "MaritalStatus")
+                {
+                    <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+
+                if (ViewBag.choice == "Income Level")
+                {
+                    <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = ViewBag.photoOneId})" />
+                }
+            }
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <h4> </h4>
+            @{
+                if (ViewBag.choice == "Age")
+                {
+                    <img src="@Url.Action("GetAgeChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Sex")
+                {
+                    <img src="@Url.Action("GetSexChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Race")
+                {
+                    <img src="@Url.Action("GetRaceChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Location")
+                {
+                    <img src="@Url.Action("GetLocationChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Education")
+                {
+                    <img src="@Url.Action("GetEducationChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Profession")
+                {
+                    <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "MaritalStatus")
+                {
+                    <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+
+                if (ViewBag.choice == "Income Level")
+                {
+                    <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = ViewBag.photoTwoId})" />
+                }
+            }
+        </p>
     </div>
 </div>
 
@@ -24,8 +228,7 @@
 
 
 
-
-<div>
+@*<div>
 <p>
     @using (Html.BeginForm())
     {
@@ -216,4 +419,4 @@
         }
     }
 </div>
-</div>
+</div>*@
