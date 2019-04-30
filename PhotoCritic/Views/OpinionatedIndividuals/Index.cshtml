@@ -17,19 +17,6 @@
     </p>
 
     <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </th>
-            <th>
-            </th>
-            <th>
-            </th>
-            <th></th>
-        </tr>
 
         @foreach (var item in Model)
         {
@@ -41,15 +28,10 @@
                     <img src="@Url.Content(item.ImagePath)" width="250" />
                 </td>
                 <td>
-                    <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default">Like</a>
+                    <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Like.png" alt="Like" height="50"/> </a>
                 </td>
                 <td>
-                    <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default">Dislike</a>
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Dislike.png" alt="Dislike" height="50" /> </a>
                 </td>
             </tr>
         }

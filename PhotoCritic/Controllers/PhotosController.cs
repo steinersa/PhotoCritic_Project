@@ -3,12 +3,14 @@ using PhotoCritic.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+//using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+//using System.Web.UI.DataVisualization.Charting;
 
 namespace PhotoCritic.Controllers
 {
