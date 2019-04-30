@@ -149,6 +149,7 @@ namespace PhotoCritic.Controllers
             {
                 photoInteractedWith.TotalDislikes += 1;
             }
+
             photoInteractedWith.TotalInteractions += 1;
 
             if (ModelState.IsValid)

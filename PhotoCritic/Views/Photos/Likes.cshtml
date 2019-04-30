@@ -6,40 +6,65 @@
 
 <h2>Likes</h2>
 
-<div>
-    <p>
-        <a href="@Url.Action("LikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default">Feedback</a>
-    </p>
-
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetAgeChartDataLike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Content(Model.ImagePath)" height="300" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetSexChartDataLike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p> <a href="@Url.Action("LikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default">Feedback</a> </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetRaceChartDataLike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetAgeChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetLocationChartDataLike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetSexChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetEducationChartDataLike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetRaceChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetProfessionChartDataLike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetLocationChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetEducationChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetProfessionChartDataLike", new { id = Model.Id})" />
+        </p>
+    </div>
+</div>
 
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = Model.Id})" />
+        </p>
     </div>
 </div>

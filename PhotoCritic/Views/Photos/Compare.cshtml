@@ -68,7 +68,7 @@
                     <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoOneId})" />
                 }
 
-                if (ViewBag.choice == "MaritalStatus")
+                if (ViewBag.choice == "Marital Status")
                 {
                     <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoOneId})" />
                 }
@@ -115,7 +115,7 @@
                     <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoTwoId})" />
                 }
 
-                if (ViewBag.choice == "MaritalStatus")
+                if (ViewBag.choice == "Marital Status")
                 {
                     <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoTwoId})" />
                 }
@@ -164,7 +164,7 @@
                     <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoOneId})" />
                 }
 
-                if (ViewBag.choice == "MaritalStatus")
+                if (ViewBag.choice == "Marital Status")
                 {
                     <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoOneId})" />
                 }
@@ -210,7 +210,7 @@
                     <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoTwoId})" />
                 }
 
-                if (ViewBag.choice == "MaritalStatus")
+                if (ViewBag.choice == "Marital Status")
                 {
                     <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoTwoId})" />
                 }
@@ -223,200 +223,3 @@
         </p>
     </div>
 </div>
-
-
-
-
-
-@*<div>
-<p>
-    @using (Html.BeginForm())
-    {
-    <p>
-        Compare by: @Html.DropDownList("compareChoice")
-        <input type="submit" value="Compare" />
-    </p>
-}
-    </p>
-
-<div>
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Content(ViewBag.PhotoOneImage)" height="300" />
-    </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Content(ViewBag.PhotoTwoImage)" height="300" />
-    </div>
-
-
-    @{
-        if (ViewBag.choice == "Age")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetAgeChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetAgeChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetAgeChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetAgeChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Sex")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetSexChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetSexChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetSexChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetSexChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Race")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetRaceChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetRaceChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetRaceChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetRaceChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Location")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetLocationChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetLocationChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetLocationChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetLocationChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Education")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetEducationChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetEducationChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetEducationChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetEducationChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Profession")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetProfessionChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetProfessionChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Marital Status")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-
-        if (ViewBag.choice == "Income Level")
-        {
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetIncomelevelChartDataLike", new { id = ViewBag.photoTwoId})" />
-            </div>
-
-
-
-            <div class="row" style="width: 50%; float:left">
-                <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = ViewBag.photoOneId})" />
-            </div>
-
-            <div class="row" style="width: 50%; float:right">
-                <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = ViewBag.photoTwoId})" />
-            </div>
-        }
-    }
-</div>
-</div>*@

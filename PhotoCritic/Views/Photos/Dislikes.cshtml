@@ -1,45 +1,70 @@
 ﻿@model PhotoCritic.Models.Photo
 
 @{
-    ViewBag.Title = "Dislilkes";
+    ViewBag.Title = "Dislikes";
 }
 
 <h2>Dislikes</h2>
 
-<div>
-    <p>
-        <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default">Feedback</a>
-    </p>
-
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetAgeChartDataDislike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Content(Model.ImagePath)" height="300" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetSexChartDataDislike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p> <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default">Feedback</a> </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetRaceChartDataDislike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetAgeChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetLocationChartDataDislike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetSexChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetEducationChartDataDislike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetRaceChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
-
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetProfessionChartDataDislike", new { id = Model.Id})" />
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetLocationChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
+</div>
 
-    <div class="row" style="width: 50%; float:left">
-        <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetEducationChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetProfessionChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+</div>
 
-    <div class="row" style="width: 50%; float:right">
-        <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = Model.Id})" />
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = Model.Id})" />
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = Model.Id})" />
+        </p>
     </div>
 </div>
