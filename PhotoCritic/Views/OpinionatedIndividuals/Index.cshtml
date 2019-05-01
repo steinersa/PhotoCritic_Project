@@ -57,6 +57,7 @@
 
     </table>*@
 
+<br/>
 @{ int i = 0; }
 <div class="row">
     
@@ -68,8 +69,8 @@
             }
             <div class="col-lg-6">
                 @Html.Action("CheckIfVoted", "OpinionatedIndividuals", new { id = item.Id })
-                @Html.DisplayFor(modelItem => item.ImageName) <br/>
-                <img src="@Url.Content(item.ImagePath)" width="350" /> <br />
+                <h3>@Html.DisplayFor(modelItem => item.ImageName) </h3>
+                <img src="@Url.Content(item.ImagePath)" width="300" /> <br />
                 @{
                     if (TempData["vote"] == null)
                     {
@@ -79,7 +80,7 @@
 
                     if (TempData["vote"] != null)
                     {
-                            <div>Thanks for your feedback!</div>
+                            <h4>Thanks for your feedback!</h4>
                     }
                 }
                 <br/>

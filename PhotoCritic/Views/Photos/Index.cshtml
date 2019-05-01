@@ -43,13 +43,12 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ImageName) <br /> <br />
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <br />
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) <br />
-                    @*@Html.ActionLink("Filter", "Filtered", new { id = item.Id })*@
+                    <h4>@Html.DisplayFor(modelItem => item.ImageName)</h4> <br /> <br />
+                    <a href="@Url.Action("Edit", "Photos", new { id = item.Id })" class="btn btn-info">Edit</a> <br /> <br/>
+                    <a href="@Url.Action("Delete", "Photos", new { id = item.Id })" class="btn btn-danger">Delete</a> <br />
                 </td>
                 <td>
-                    <img src="@Url.Content(item.ImagePath)" width="200" />
+                    <img src="@Url.Content(item.ImagePath)" width="200" align ="middle"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
@@ -63,9 +62,11 @@
                     @Html.DisplayFor(modelItem => item.Compare)
                 </td>
                 <td>
-                    <a href="@Url.Action("Filtered", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalInteractions) <br /> Filter Interactions </a> <br />
-                    <a href="@Url.Action("Likes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalLikes) <br /> <img src="~/ProjectImages/Like.png" alt="Likes" height="30" /> </a>
-                    <a href="@Url.Action("Dislikes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalDislikes) <br /> <img src="~/ProjectImages/Dislike.png" alt="Dislikes" height="30" /> </a>
+                    <a href="@Url.Action("Filtered", "Photos", new { id = item.Id })" class="btn btn-default btn-lg btn-block">@Html.DisplayFor(modelItem => item.TotalInteractions) <br /> Filter Interactions </a> <br />
+                    <div class="btn-block">
+                        <a href="@Url.Action("Likes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalLikes) <br /> <img src="~/ProjectImages/Like.png" alt="Likes" height="30" /> </a>
+                        <a href="@Url.Action("Dislikes", "Photos", new { id = item.Id })" class="btn btn-default">@Html.DisplayFor(modelItem => item.TotalDislikes) <br /> <img src="~/ProjectImages/Dislike.png" alt="Dislikes" height="30" /> </a>
+                    </div>
                 </td>
             </tr>
         }

@@ -8,19 +8,24 @@
     ViewBag.Title = "Dislikes";
 }
 
-<h2>Dislikes</h2>
+<h2>Demographic breakdown</h2> <h4>of those who disliked this photo</h4>
 
+
+@*<div class="row">
+        <div class="col-md-6">
+            <p>
+                <img src="@Url.Content(Model.ImagePath)" height="300" />
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p> <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-info btn-block btn-lg">Feedback</a> </p>
+        </div>
+    </div>*@
+<br />
 <div class="row">
-    <div class="col-md-6">
-        <p>
-            <img src="@Url.Content(Model.ImagePath)" height="300" />
-        </p>
-    </div>
-    <div class="col-md-6">
-        <p> <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default">Feedback</a> </p>
-    </div>
+    <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default btn-block btn-lg">View Feedback</a>
 </div>
-
+<br />
 <div class="row">
     <div class="col-md-6">
         <p>

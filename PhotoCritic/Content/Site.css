@@ -27,3 +27,8 @@ img {
     max-height: 100%;
     max-width: 100%;
 }
+
+X.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
