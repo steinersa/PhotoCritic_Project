@@ -23,7 +23,7 @@ namespace PhotoCritic
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap_readable.css",
                       "~/Content/site.css"));
         }
     }

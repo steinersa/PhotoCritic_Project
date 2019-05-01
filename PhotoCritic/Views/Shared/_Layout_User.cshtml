@@ -17,10 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("PhotoCritic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("PhotoCritic", "Index", "OpinionatedIndividuals", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "OpinionatedIndividuals")</li>
+                    <li>@Html.ActionLink("My Photos", "Index", "Photos")</li>
+                    <li>@Html.ActionLink("Compare", "Compare", "Photos")</li>
+                    <li>@Html.ActionLink("Upload", "Create", "Photos")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

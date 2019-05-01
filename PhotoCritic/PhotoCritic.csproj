@@ -286,6 +286,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_readable.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -354,6 +355,7 @@
     <Content Include="Views\Photos\DislikesCommentsReasons.cshtml" />
     <Content Include="Views\Photos\Filtered.cshtml" />
     <Content Include="Views\Photos\Compare.cshtml" />
+    <Content Include="Views\Shared\_Layout_User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

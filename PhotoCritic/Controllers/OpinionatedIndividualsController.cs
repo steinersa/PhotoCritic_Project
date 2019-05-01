@@ -131,7 +131,6 @@ namespace PhotoCritic.Controllers
             var userResult = User.Identity.GetUserId();
             var currentOpinionatedIndividualId = db.OpinionatedIndividuals.Where(x => userResult == x.ApplicationId).Select(x => x.Id).FirstOrDefault();
             var voteForPhoto = db.OpinionatedIndividualPhotos.Where(x => currentOpinionatedIndividualId == x.OpinionatedIndividualId && id == x.PhotoId).FirstOrDefault();
-            //ViewBag.vote = voteForPhoto;
             TempData["vote"] = voteForPhoto;
 
             return null;
