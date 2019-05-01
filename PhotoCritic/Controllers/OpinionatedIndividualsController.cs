@@ -33,9 +33,11 @@ namespace PhotoCritic.Controllers
         }
 
         // GET: OpinionatedIndividuals/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Dashboard()
         {
-            return View();
+            var userResult = User.Identity.GetUserId();
+            var currentUser = db.OpinionatedIndividuals.Include(x => x.Age).Include(x => x.Sex).Include(x => x.Race).Include(x => x.Location).Include(x => x.Education).Include(x => x.Profession).Include(x => x.IncomeLevel).Include(x => x.MaritalStatus).Where(x => userResult == x.ApplicationId).FirstOrDefault();
+            return View(currentUser);
         }
 
         // GET: OpinionatedIndividuals/Create
@@ -82,26 +84,56 @@ namespace PhotoCritic.Controllers
             return View(opinionatedIndividual);
         }
 
-        // GET: OpinionatedIndividuals/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Photos/Edit/5
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var ages = db.Ages.ToList();
+            var sexes = db.Sexes.ToList();
+            var races = db.Races.ToList();
+            var locations = db.Locations.ToList();
+            var educations = db.Educations.ToList();
+            var professions = db.Professions.ToList();
+            var maritalStatuses = db.MaritalStatuses.ToList();
+            var incomeLevels = db.IncomeLevels.ToList();
+
+            OpinionatedIndividual opinionatedIndividual = db.OpinionatedIndividuals.Find(id);
+            {
+                opinionatedIndividual.Ages = ages;
+                opinionatedIndividual.Sexes = sexes;
+                opinionatedIndividual.Races = races;
+                opinionatedIndividual.Locations = locations;
+                opinionatedIndividual.Educations = educations;
+                opinionatedIndividual.Professions = professions;
+                opinionatedIndividual.MaritalStatuses = maritalStatuses;
+                opinionatedIndividual.IncomeLevels = incomeLevels;
+            };
+
+            if (opinionatedIndividual == null)
+            {
+                return HttpNotFound();
+            }
+            return View(opinionatedIndividual);
         }
 
-        // POST: OpinionatedIndividuals/Edit/5
+        // POST: Photos/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,ApplicationId,AgeId,SexId,RaceId,LocationId,EducationId,ProfessionId,IncomeLevelId,MaritalStatusId")] OpinionatedIndividual opinionatedIndividual)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.Entry(opinionatedIndividual).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Dashboard");
             }
-            catch
-            {
-                return View();
-            }
+            return View(opinionatedIndividual);
         }
 
         // GET: OpinionatedIndividuals/Delete/5

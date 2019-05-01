@@ -356,6 +356,8 @@
     <Content Include="Views\Photos\Filtered.cshtml" />
     <Content Include="Views\Photos\Compare.cshtml" />
     <Content Include="Views\Shared\_Layout_User.cshtml" />
+    <Content Include="Views\OpinionatedIndividuals\Dashboard.cshtml" />
+    <Content Include="Views\OpinionatedIndividuals\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

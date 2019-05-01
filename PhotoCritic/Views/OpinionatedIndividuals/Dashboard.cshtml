@@ -1,0 +1,80 @@
+﻿@model PhotoCritic.Models.OpinionatedIndividual
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<div>
+    <h4>My Info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Age.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Race.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Race.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Education.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Education.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profession.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profession.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatus.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeLevel.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeLevel.Name)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "OpinionatedIndividuals", new { id = Model.Id })" class="btn btn-info">Edit</a>
+</p>

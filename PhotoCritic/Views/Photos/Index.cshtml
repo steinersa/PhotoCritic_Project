@@ -20,6 +20,9 @@
 }
     </p>
 
+</br>
+    <a href="@Url.Action("Compare", "Photos")" class="btn btn-default">Compare Selected Photos</a> <br />
+<br/>
     <table class="table">
         <tr>
             <th>
@@ -44,11 +47,11 @@
             <tr>
                 <td>
                     <h4>@Html.DisplayFor(modelItem => item.ImageName)</h4> <br /> <br />
-                    <a href="@Url.Action("Edit", "Photos", new { id = item.Id })" class="btn btn-info">Edit</a> <br /> <br/>
+                    <a href="@Url.Action("Edit", "Photos", new { id = item.Id })" class="btn btn-info">Edit</a> <br /> <br />
                     <a href="@Url.Action("Delete", "Photos", new { id = item.Id })" class="btn btn-danger">Delete</a> <br />
                 </td>
                 <td>
-                    <img src="@Url.Content(item.ImagePath)" width="200" align ="middle"/>
+                    <img src="@Url.Content(item.ImagePath)" width="200" align="middle" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
