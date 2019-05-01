@@ -20,6 +20,7 @@
 
         @foreach (var item in Model)
         {
+            @Html.Action("CheckIfVoted", "OpinionatedIndividuals", new { id = item.Id })
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.ImageName)
@@ -27,12 +28,26 @@
                 <td>
                     <img src="@Url.Content(item.ImagePath)" width="250" />
                 </td>
-                <td>
-                    <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Like.png" alt="Like" height="50"/> </a>
-                </td>
-                <td>
-                    <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Dislike.png" alt="Dislike" height="50" /> </a>
-                </td>
+                @{
+                    if (TempData["vote"] == null)
+                    {
+                        <td>
+                            <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Like.png" alt="Like" height="50" /> </a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Dislike.png" alt="Dislike" height="50" /> </a>
+                        </td>
+                    }
+
+                    if (TempData["vote"] != null)
+                    {
+                        <td>
+                            Thanks for your feedback!
+                        </td>
+                        <td></td>
+                    }
+                }
+
             </tr>
         }
 
