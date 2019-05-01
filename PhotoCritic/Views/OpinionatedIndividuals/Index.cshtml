@@ -20,7 +20,7 @@
 }
     </p>
 
-    <table class="table">
+    @*<table class="table">
 
         @foreach (var item in Model)
         {
@@ -55,4 +55,39 @@
             </tr>
         }
 
-    </table>
+    </table>*@
+
+@{ int i = 0; }
+<div class="row">
+    
+        @foreach(var item in Model)
+        {
+            if (i > 0 && i % 2 == 0)
+            {
+                @:</div><div class="row">
+            }
+            <div class="col-lg-6">
+                @Html.Action("CheckIfVoted", "OpinionatedIndividuals", new { id = item.Id })
+                @Html.DisplayFor(modelItem => item.ImageName) <br/>
+                <img src="@Url.Content(item.ImagePath)" width="350" /> <br />
+                @{
+                    if (TempData["vote"] == null)
+                    {
+                            <a href="@Url.Action("LikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Like.png" alt="Like" height="50" /> </a>
+                            <a href="@Url.Action("DislikeCreate", "OpinionatedIndividualPhotos", new { id = item.Id })" class="btn btn-default"> <img src="~/ProjectImages/Dislike.png" alt="Dislike" height="50" /> </a>
+                    }
+
+                    if (TempData["vote"] != null)
+                    {
+                            <div>Thanks for your feedback!</div>
+                    }
+                }
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            i++;
+        }
+    
+</div>
