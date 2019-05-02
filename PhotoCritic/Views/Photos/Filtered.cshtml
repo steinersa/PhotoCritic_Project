@@ -2,32 +2,33 @@
     Layout = "~/Views/Shared/_Layout_User.cshtml";
 }
 
-@model IEnumerable<PhotoCritic.Models.Photo>
+@model PhotoCritic.Models.Photo
 
 @{
     ViewBag.Title = "Filtered";
 }
 
-<h2>Filter My Results</h2> <h4>Here you can see how a specific demographic interacted with your photo.</h4>
-<br/>
+<h2>Filter My Results</h2>
+<h4>Here you can see how a specific demographic interacted with your photo.</h4>
+<br />
 <h6>Select the demographic of your choosing!</h6>
 
-<p>
-    @using (Html.BeginForm())
-    {
-    <p>
-        Age: @Html.DropDownList("ageSelection", "All") <br />
-        Sex: @Html.DropDownList("sexSelection", "All") <br />
-        Race: @Html.DropDownList("RaceSelection", "All") <br />
-        Location: @Html.DropDownList("locationSelection", "All") <br />
-        Education: @Html.DropDownList("educationSelection", "All") <br />
-        Profession: @Html.DropDownList("professionSelection", "All") <br />
-        Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
-        Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
-        <input type="submit" value="Filter" />
-    </p>
-}
-    </p>
+        <p>
+            @using (Html.BeginForm())
+            {
+            <p>
+                Age: @Html.DropDownList("ageSelection", "All") <br />
+                Sex: @Html.DropDownList("sexSelection", "All") <br />
+                Race: @Html.DropDownList("RaceSelection", "All") <br />
+                Location: @Html.DropDownList("locationSelection", "All") <br />
+                Education: @Html.DropDownList("educationSelection", "All") <br />
+                Profession: @Html.DropDownList("professionSelection", "All") <br />
+                Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
+                Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
+                <input type="submit" value="Filter" />
+            </p>
+        }
+            </p>
 
     <div class="row" style="width: 100%; float:none">
         <img src="@Url.Action("GetChartData", "Photos", new { data = Json.Encode(ViewBag.chartYValues) })" />

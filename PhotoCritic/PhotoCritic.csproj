@@ -292,6 +292,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ProjectImages\Dislike.png" />
+    <Content Include="ProjectImages\home1.jpeg" />
+    <Content Include="ProjectImages\home2.jpeg" />
+    <Content Include="ProjectImages\home3.jpeg" />
     <Content Include="ProjectImages\Like.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

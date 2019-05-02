@@ -153,7 +153,7 @@ namespace PhotoCritic.Controllers
             {
                 db.OpinionatedIndividuals.Add(opinionatedIndividual);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Dashboard");
             }
 
             return View(opinionatedIndividual);
