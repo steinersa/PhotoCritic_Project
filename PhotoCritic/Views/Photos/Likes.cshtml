@@ -8,24 +8,28 @@
     ViewBag.Title = "Likes";
 }
 
-<h2>Demographic breakdown</h2> <h4>of those who liked this photo</h4>
+<h2>Demographic breakdown</h2> <h4>of those who liked this photo:</h4>
 
-
-@*<div class="row">
+<div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Content(Model.ImagePath)" height="500" />
         </p>
     </div>
     <div class="col-md-6">
-        <p> <a href="@Url.Action("LikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-info btn-block btn-lg">Feedback</a> </p>
+        <p>
+            <img src="@Url.Content(Model.ImagePath)" width="300" />
+        </p>
     </div>
-</div>*@
+</div>
+
 <br/>
+
 <div class="row">
     <a href="@Url.Action("LikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default btn-block btn-lg">View Feedback</a>
 </div>
+
 <br/>
+
 <div class="row">
     <div class="col-md-6">
         <p>

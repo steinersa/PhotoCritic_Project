@@ -175,7 +175,7 @@ namespace PhotoCritic.Controllers
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); //just the keys (distinct ages)
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
 
-            Chart Age = new Chart(width: 300, height: 300)
+            Chart Age = new Chart(width: 500, height: 500)
                 .AddTitle("Age")
                 .AddLegend()
                 .AddSeries(
@@ -201,7 +201,7 @@ namespace PhotoCritic.Controllers
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Sex = new Chart(width: 300, height: 300)
+            Chart Sex = new Chart(width: 500, height: 500)
                 .AddTitle("Sex")
                 .AddLegend()
                 .AddSeries(
@@ -227,7 +227,7 @@ namespace PhotoCritic.Controllers
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Race = new Chart(width: 300, height: 300)
+            Chart Race = new Chart(width: 500, height: 500)
                 .AddTitle("Race")
                 .AddLegend()
                 .AddSeries(
@@ -254,7 +254,7 @@ namespace PhotoCritic.Controllers
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Location = new Chart(width: 300, height: 300)
+            Chart Location = new Chart(width: 500, height: 500)
                 .AddTitle("Location")
                 .AddLegend()
                 .AddSeries(
@@ -280,7 +280,7 @@ namespace PhotoCritic.Controllers
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Education = new Chart(width: 300, height: 300)
+            Chart Education = new Chart(width: 500, height: 500)
                 .AddTitle("Education")
                 .AddLegend()
                 .AddSeries(
@@ -306,7 +306,7 @@ namespace PhotoCritic.Controllers
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Profession = new Chart(width: 300, height: 300)
+            Chart Profession = new Chart(width: 500, height: 500)
                 .AddTitle("Profession")
                 .AddLegend()
                 .AddSeries(
@@ -332,7 +332,7 @@ namespace PhotoCritic.Controllers
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart MaritalStatus = new Chart(width: 300, height: 300)
+            Chart MaritalStatus = new Chart(width: 500, height: 500)
                 .AddTitle("Marital Status")
                 .AddLegend()
                 .AddSeries(
@@ -358,7 +358,7 @@ namespace PhotoCritic.Controllers
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart IncomeLevel = new Chart(width: 300, height: 300)
+            Chart IncomeLevel = new Chart(width: 500, height: 500)
                 .AddTitle("Income Level")
                 .AddLegend()
                 .AddSeries(
@@ -407,7 +407,7 @@ namespace PhotoCritic.Controllers
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Age = new Chart(width: 300, height: 300)
+            Chart Age = new Chart(width: 500, height: 500)
                 .AddTitle("Age")
                 .AddLegend()
                 .AddSeries(
@@ -433,7 +433,7 @@ namespace PhotoCritic.Controllers
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Sex = new Chart(width: 300, height: 300)
+            Chart Sex = new Chart(width: 500, height: 500)
                 .AddTitle("Sex")
                 .AddLegend()
                 .AddSeries(
@@ -459,7 +459,7 @@ namespace PhotoCritic.Controllers
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Race = new Chart(width: 300, height: 300)
+            Chart Race = new Chart(width: 500, height: 500)
                 .AddTitle("Race")
                 .AddLegend()
                 .AddSeries(
@@ -485,7 +485,7 @@ namespace PhotoCritic.Controllers
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Location = new Chart(width: 300, height: 300)
+            Chart Location = new Chart(width: 500, height: 500)
                 .AddTitle("Location")
                 .AddLegend()
                 .AddSeries(
@@ -511,7 +511,7 @@ namespace PhotoCritic.Controllers
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Education = new Chart(width: 300, height: 300)
+            Chart Education = new Chart(width: 500, height: 500)
                 .AddTitle("Education")
                 .AddLegend()
                 .AddSeries(
@@ -537,7 +537,7 @@ namespace PhotoCritic.Controllers
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Profession = new Chart(width: 300, height: 300)
+            Chart Profession = new Chart(width: 500, height: 500)
                 .AddTitle("Profession")
                 .AddLegend()
                 .AddSeries(
@@ -563,7 +563,7 @@ namespace PhotoCritic.Controllers
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart Locations = new Chart(width: 300, height: 300)
+            Chart Locations = new Chart(width: 500, height: 500)
                 .AddTitle("Marital Status")
                 .AddLegend()
                 .AddSeries(
@@ -589,7 +589,7 @@ namespace PhotoCritic.Controllers
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
 
-            Chart IncomeLevel = new Chart(width: 300, height: 300)
+            Chart IncomeLevel = new Chart(width: 500, height: 500)
                 .AddTitle("Income Level")
                 .AddLegend()
                 .AddSeries(
