@@ -706,7 +706,7 @@ namespace PhotoCritic.Controllers
         {
             string[] newData = System.Web.Helpers.Json.Decode<string[]>(data);
 
-            Chart Filtered = new Chart(width: 500, height: 500)
+            Chart Filtered = new Chart(width: 700, height: 700)
                 .AddTitle("Results")
                 .AddLegend()
                 .AddSeries(

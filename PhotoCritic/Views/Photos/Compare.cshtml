@@ -8,15 +8,16 @@
     ViewBag.Title = "Compare";
 }
 
-<h2>Compare</h2>
+<h2>Compare Two of My Photos</h2> <h4>Here you can compare how a demographic interacted with your photos.</h4>
 
-<br />
+<br/>
+<h6>Select which demographic you'd like to compare by!</h6>
 
 <div class="row">
     @using (Html.BeginForm())
     {
         <p>
-            Compare by: @Html.DropDownList("compareChoice")
+            Compare: @Html.DropDownList("compareChoice")
             <input type="submit" value="Compare" />
         </p>
     }

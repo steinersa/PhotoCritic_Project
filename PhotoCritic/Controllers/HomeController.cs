@@ -17,7 +17,7 @@ namespace PhotoCritic.Controllers
             var id = User.Identity.GetUserId();
             if (id != null)
             {
-                return RedirectToAction("Index", "OpinionatedIndividuals");
+                return RedirectToAction("Dashboard", "OpinionatedIndividuals");
             }
 
             return View();

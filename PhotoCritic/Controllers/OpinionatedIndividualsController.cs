@@ -45,12 +45,19 @@ namespace PhotoCritic.Controllers
 
             try
             {
-                var likeDivision = ((double)myLikeCount / (double)myInteractionCount);
-                double likeResult = likeDivision * 100;
-                var likePercent = Convert.ToInt32(likeResult);
-                ViewBag.percentLike = likePercent;
+                double likeDivision = ((double)myLikeCount / (double)myInteractionCount);
+                if (double.IsNaN(likeDivision) == true)
+                {
+                    throw new DivideByZeroException();
+                }
+                else
+                {
+                    double likeResult = likeDivision * 100;
+                    var likePercent = Convert.ToInt32(likeResult);
+                    ViewBag.percentLike = likePercent;
+                }
             }
-            catch (DivideByZeroException e)
+            catch (DivideByZeroException)
             {
                 ViewBag.percentLike = 0;
             }
@@ -59,11 +66,18 @@ namespace PhotoCritic.Controllers
             {
 
                 var dislikeDivision = ((double)myDislikeCount / (double)myInteractionCount);
-                double dislikeResult = dislikeDivision * 100;
-                var dislikePercent = Convert.ToInt32(dislikeResult);
-                ViewBag.percentDislike = dislikePercent;
+                if (double.IsNaN(dislikeDivision) == true)
+                {
+                    throw new DivideByZeroException();
+                }
+                else
+                {
+                    double dislikeResult = dislikeDivision * 100;
+                    var dislikePercent = Convert.ToInt32(dislikeResult);
+                    ViewBag.percentDislike = dislikePercent;
+                }
             }
-            catch (DivideByZeroException e)
+            catch (DivideByZeroException)
             {
                 ViewBag.percentDislike = 0;
             }

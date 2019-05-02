@@ -8,20 +8,22 @@
     ViewBag.Title = "Filtered";
 }
 
-<h2>Filtered</h2>
+<h2>Filter My Results</h2> <h4>Here you can see how a specific demographic interacted with your photo.</h4>
+<br/>
+<h6>Select the demographic of your choosing!</h6>
 
 <p>
     @using (Html.BeginForm())
     {
     <p>
-        Select Age: @Html.DropDownList("ageSelection", "All") <br />
-        Select Sex: @Html.DropDownList("sexSelection", "All") <br />
-        Select Race: @Html.DropDownList("RaceSelection", "All") <br />
-        Select Location: @Html.DropDownList("locationSelection", "All") <br />
-        Select Education: @Html.DropDownList("educationSelection", "All") <br />
-        Select Profession: @Html.DropDownList("professionSelection", "All") <br />
-        Select Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
-        Select Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
+        Age: @Html.DropDownList("ageSelection", "All") <br />
+        Sex: @Html.DropDownList("sexSelection", "All") <br />
+        Race: @Html.DropDownList("RaceSelection", "All") <br />
+        Location: @Html.DropDownList("locationSelection", "All") <br />
+        Education: @Html.DropDownList("educationSelection", "All") <br />
+        Profession: @Html.DropDownList("professionSelection", "All") <br />
+        Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
+        Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
         <input type="submit" value="Filter" />
     </p>
 }
