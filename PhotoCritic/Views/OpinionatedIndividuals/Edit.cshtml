@@ -1,4 +1,8 @@
-﻿@model PhotoCritic.Models.OpinionatedIndividual
+﻿@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+@model PhotoCritic.Models.OpinionatedIndividual
 
 @{
     ViewBag.Title = "Edit";
@@ -9,82 +13,82 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>OpinionatedIndividual</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Id)
-    @Html.HiddenFor(model => model.ApplicationId)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AgeId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.AgeId, new SelectList(Model.Ages, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.AgeId, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>OpinionatedIndividual</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ApplicationId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AgeId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AgeId, new SelectList(Model.Ages, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AgeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SexId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SexId, new SelectList(Model.Sexes, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SexId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RaceId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RaceId, new SelectList(Model.Races, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RaceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocationId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LocationId, new SelectList(Model.Locations, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EducationId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.EducationId, new SelectList(Model.Educations, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EducationId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProfessionId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProfessionId, new SelectList(Model.Professions, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProfessionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaritalStatusId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaritalStatusId, new SelectList(Model.MaritalStatuses, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaritalStatusId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncomeLevelId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IncomeLevelId, new SelectList(Model.IncomeLevels, "Id", "Name"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncomeLevelId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.SexId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SexId, new SelectList(Model.Sexes, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.SexId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.RaceId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.RaceId, new SelectList(Model.Races, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.RaceId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.LocationId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.LocationId, new SelectList(Model.Locations, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.EducationId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.EducationId, new SelectList(Model.Educations, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.EducationId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProfessionId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ProfessionId, new SelectList(Model.Professions, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ProfessionId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.MaritalStatusId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.MaritalStatusId, new SelectList(Model.MaritalStatuses, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MaritalStatusId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IncomeLevelId, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.IncomeLevelId, new SelectList(Model.IncomeLevels, "Id", "Name"), "", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IncomeLevelId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }

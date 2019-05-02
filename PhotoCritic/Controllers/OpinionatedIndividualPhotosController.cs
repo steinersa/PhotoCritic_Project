@@ -117,28 +117,6 @@ namespace PhotoCritic.Controllers
             }
         }
 
-        // GET: OpinionatedIndividualPhotos/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: OpinionatedIndividualPhotos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         public void AddInteractionToPhoto ([Bind(Include = "Id, ApplicationId, ImageName, ImagePath, CategoryId, Hidden, CommentsEnabled, TotalLikes, TotalDislikes, ImageFile, WhenCreated, TotalInteractions")] Photo photoInteractedWith, OpinionatedIndividualPhoto opinionatedIndividualPhoto)
         {
             if (opinionatedIndividualPhoto.LikeDislike == true)

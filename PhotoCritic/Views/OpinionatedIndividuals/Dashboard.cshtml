@@ -1,4 +1,8 @@
-﻿@model PhotoCritic.Models.OpinionatedIndividual
+﻿@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+@model PhotoCritic.Models.OpinionatedIndividual
 
 @{
     ViewBag.Title = "Dashboard";
@@ -6,75 +10,207 @@
 
 <h2>Dashboard</h2>
 
-<div>
-    <h4>My Info</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Age.Name)
-        </dt>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">My Info:</h3>
+            </div>
+            <div class="panel-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Age.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Age.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Age.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sex.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sex.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sex.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Sex.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Race.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Race.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Race.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Race.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Location.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Education.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Education.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Education.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Education.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Profession.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Profession.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Profession.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Profession.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaritalStatus.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaritalStatus.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaritalStatus.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.MaritalStatus.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IncomeLevel.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IncomeLevel.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IncomeLevel.Name)
-        </dd>
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.IncomeLevel.Name)
+                </dd>
+                </dl>
+                </br>
+                <p>
+                    <a href="@Url.Action("Edit", "OpinionatedIndividuals", new { id = Model.Id })" class="btn btn-info">Edit</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"># of photos I have interacted with:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.interactionCount == 0)
+                    {
+                        <h4>You have not interacted with any photos.</h4>
+                        <h4>Get voting!</h4>
+                    }
+                    else
+                    {
+                        <h1> @ViewBag.interactionCount </h1>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">% of likes I have given:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.percentLike == 0)
+                    {
+                        <h4>You have not liked any photos.</h4>
+                        <h4>Harsh!</h4>
+                    }
+                    else
+                    {
+                        <h1> @ViewBag.percentLike% </h1>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">% of dislikes I have given:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.percentDislike == 0)
+                    {
+                        <h4>You have not disliked any photos.</h4>
+                        <h4>You're too kind!</h4>
+                    }
+                    else
+                    {
+                        <h1> @ViewBag.percentDislike% </h1>
+                    }
+                }
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    <a href="@Url.Action("Edit", "OpinionatedIndividuals", new { id = Model.Id })" class="btn btn-info">Edit</a>
-</p>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">My photo most interacted with:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.myMostInteractedImagePath == "None")
+                    {
+                        <h4>None of your photos have been interacted with yet.</h4>
+                    }
+                    else
+                    {
+                        <img src="@Url.Content(ViewBag.myMostInteractedImagePath)" width="320" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">My photo with the most likes:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.myMostLikedImagePath == "None")
+                    {
+                        <h4>None of your photos have been liked yet.</h4>
+                    }
+                    else
+                    {
+                        <img src="@Url.Content(ViewBag.myMostLikedImagePath)" width="320" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">My photo with the most dislikes:</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    if (ViewBag.myMostDislikedImagePath == "None")
+                    {
+                        <h4>None of your photos have been disliked yet.</h4>
+                    }
+                    else
+                    {
+                        <img src="@Url.Content(ViewBag.myMostDislikedImagePath)" width="320" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

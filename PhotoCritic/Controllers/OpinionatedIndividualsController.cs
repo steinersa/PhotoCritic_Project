@@ -37,6 +37,67 @@ namespace PhotoCritic.Controllers
         {
             var userResult = User.Identity.GetUserId();
             var currentUser = db.OpinionatedIndividuals.Include(x => x.Age).Include(x => x.Sex).Include(x => x.Race).Include(x => x.Location).Include(x => x.Education).Include(x => x.Profession).Include(x => x.IncomeLevel).Include(x => x.MaritalStatus).Where(x => userResult == x.ApplicationId).FirstOrDefault();
+
+            var myInteractionCount = db.OpinionatedIndividualPhotos.Where(x => x.OpinionatedIndividualId == currentUser.Id).ToList().Count();
+            ViewBag.interactionCount = myInteractionCount;
+            var myLikeCount = db.OpinionatedIndividualPhotos.Where(x => x.OpinionatedIndividualId == currentUser.Id && x.LikeDislike == true).ToList().Count();
+            var myDislikeCount = db.OpinionatedIndividualPhotos.Where(x => x.OpinionatedIndividualId == currentUser.Id && x.LikeDislike == false).ToList().Count();
+
+            try
+            {
+                var likeDivision = ((double)myLikeCount / (double)myInteractionCount);
+                double likeResult = likeDivision * 100;
+                var likePercent = Convert.ToInt32(likeResult);
+                ViewBag.percentLike = likePercent;
+            }
+            catch (DivideByZeroException e)
+            {
+                ViewBag.percentLike = 0;
+            }
+
+            try
+            {
+
+                var dislikeDivision = ((double)myDislikeCount / (double)myInteractionCount);
+                double dislikeResult = dislikeDivision * 100;
+                var dislikePercent = Convert.ToInt32(dislikeResult);
+                ViewBag.percentDislike = dislikePercent;
+            }
+            catch (DivideByZeroException e)
+            {
+                ViewBag.percentDislike = 0;
+            }
+            
+            try
+            {
+                var myMostInteractedPhoto = db.Photos.Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.TotalInteractions).FirstOrDefault();
+                ViewBag.myMostInteractedImagePath = myMostInteractedPhoto.ImagePath;
+            }
+            catch (Exception e)
+            {
+                ViewBag.myMostInteractedImagePath = "None";
+            }
+
+            try
+            {
+                var myMostLikedPhoto = db.Photos.Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.TotalLikes).FirstOrDefault();
+                ViewBag.myMostLikedImagePath = myMostLikedPhoto.ImagePath;
+            }
+            catch (Exception e)
+            {
+                ViewBag.myMostLikedImagePath = "None";
+            }
+
+            try
+            {
+                var myMostDislikedPhoto = db.Photos.Where(x => userResult == x.ApplicationId).OrderByDescending(x => x.TotalDislikes).FirstOrDefault();
+                ViewBag.myMostDislikedImagePath = myMostDislikedPhoto.ImagePath;
+            }
+            catch (Exception e)
+            {
+                ViewBag.myMostDislikedImagePath = "None";
+            }
+
             return View(currentUser);
         }
 
@@ -134,28 +195,6 @@ namespace PhotoCritic.Controllers
                 return RedirectToAction("Dashboard");
             }
             return View(opinionatedIndividual);
-        }
-
-        // GET: OpinionatedIndividuals/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: OpinionatedIndividuals/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult CheckIfVoted(int id)
