@@ -720,22 +720,29 @@ namespace PhotoCritic.Controllers
 
         public ActionResult Compare(string compareChoice)
         {
-            var userResult = User.Identity.GetUserId();
-            var photoIdsToCompare = db.Photos.Where(x => userResult == x.ApplicationId && x.Compare == true).Select(x => x.Id).ToArray();
+            try
+            {
+                var userResult = User.Identity.GetUserId();
+                var photoIdsToCompare = db.Photos.Where(x => userResult == x.ApplicationId && x.Compare == true).Select(x => x.Id).ToArray();
 
-            var choices = new List<string> { "Age", "Sex", "Race", "Location", "Education", "Profession", "Marital Status", "Income Level" };
-            ViewBag.compareChoice = new SelectList(choices);
-            ViewBag.choice = compareChoice;
+                var choices = new List<string> { "Age", "Sex", "Race", "Location", "Education", "Profession", "Marital Status", "Income Level" };
+                ViewBag.compareChoice = new SelectList(choices);
+                ViewBag.choice = compareChoice;
 
-            var photoOneId = photoIdsToCompare[0];
-            ViewBag.photoOneId = photoOneId;
-            var photoTwoId = photoIdsToCompare[1];
-            ViewBag.PhotoTwoId = photoTwoId;
+                var photoOneId = photoIdsToCompare[0];
+                ViewBag.photoOneId = photoOneId;
+                var photoTwoId = photoIdsToCompare[1];
+                ViewBag.PhotoTwoId = photoTwoId;
 
-            ViewBag.photoOneImage = db.Photos.Where(x => x.Id == photoOneId).Select(x => x.ImagePath).FirstOrDefault();
-            ViewBag.PhotoTwoImage = db.Photos.Where(x => x.Id == photoTwoId).Select(x => x.ImagePath).FirstOrDefault();
+                ViewBag.photoOneImage = db.Photos.Where(x => x.Id == photoOneId).Select(x => x.ImagePath).FirstOrDefault();
+                ViewBag.PhotoTwoImage = db.Photos.Where(x => x.Id == photoTwoId).Select(x => x.ImagePath).FirstOrDefault();
 
-            return View();
+                return View();
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Photos");
+            }
         }
     }
 }
