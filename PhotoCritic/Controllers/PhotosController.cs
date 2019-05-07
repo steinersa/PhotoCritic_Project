@@ -174,15 +174,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() }); //key value pairs
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); //just the keys (distinct ages)
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
-
-            Chart Age = new Chart(width: 500, height: 500)
-                .AddTitle("Age")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: ageKeys,
-                    yValues: ageCounts)
-                .Write("png");
+            TempData["ageKeyData"] = ageKeys;
+            TempData["ageCountData"] = ageCounts;
 
             return null;
         }
@@ -200,15 +193,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Sex).Select(x => new { x.Key, Count = x.Count() });
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Sex = new Chart(width: 500, height: 500)
-                .AddTitle("Sex")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: sexKeys,
-                    yValues: sexCounts)
-                .Write("png");
+            TempData["sexKeyData"] = sexKeys;
+            TempData["sexCountData"] = sexCounts;
 
             return null;
         }
@@ -226,16 +212,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Race).Select(x => new { x.Key, Count = x.Count() });
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Race = new Chart(width: 500, height: 500)
-                .AddTitle("Race")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: raceKeys,
-                    yValues: raceCounts
-                    )
-                .Write("png");
+            TempData["raceKeyData"] = raceKeys;
+            TempData["raceCountData"] = raceCounts;
 
             return null;
         }
@@ -253,15 +231,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Location).Select(x => new { x.Key, Count = x.Count() });
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Location = new Chart(width: 500, height: 500)
-                .AddTitle("Location")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: locationKeys,
-                    yValues: locationCounts)
-                .Write("png");
+            TempData["locationKeyData"] = locationKeys;
+            TempData["locationCountData"] = locationCounts;
 
             return null;
         }
@@ -279,15 +250,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Education).Select(x => new { x.Key, Count = x.Count() });
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Education = new Chart(width: 500, height: 500)
-                .AddTitle("Education")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: educationKeys,
-                    yValues: educationCounts)
-                .Write("png");
+            TempData["educationKeyData"] = educationKeys;
+            TempData["educationCountData"] =educationCounts;
 
             return null;
         }
@@ -305,15 +269,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Profession).Select(x => new { x.Key, Count = x.Count() });
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Profession = new Chart(width: 500, height: 500)
-                .AddTitle("Profession")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: professionKeys,
-                    yValues: professionCounts)
-                .Write("png");
+            TempData["professionKeyData"] = professionKeys;
+            TempData["professionCountData"] = professionCounts;
 
             return null;
         }
@@ -331,15 +288,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.MaritalStatus).Select(x => new { x.Key, Count = x.Count() });
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart MaritalStatus = new Chart(width: 500, height: 500)
-                .AddTitle("Marital Status")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: maritalStatusKeys,
-                    yValues: maritalStatusCounts)
-                .Write("png");
+            TempData["maritalStatusKeyData"] = maritalStatusKeys;
+            TempData["maritalStatusCountData"] = maritalStatusCounts;
 
             return null;
         }
@@ -357,15 +307,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.IncomeLevel).Select(x => new { x.Key, Count = x.Count() });
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart IncomeLevel = new Chart(width: 500, height: 500)
-                .AddTitle("Income Level")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: incomeLevelKeys,
-                    yValues: incomeLevelCounts)
-                .Write("png");
+            TempData["incomeLevelKeyData"] = incomeLevelKeys;
+            TempData["incomeLevelCountData"] = incomeLevelCounts;
 
             return null;
         }
@@ -406,15 +349,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() });
             var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var ageCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Age = new Chart(width: 500, height: 500)
-                .AddTitle("Age")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: ageKeys,
-                    yValues: ageCounts)
-                .Write("png");
+            TempData["dislikeAgeKeyData"] = ageKeys;
+            TempData["dislikeAgeCountData"] = ageCounts;
 
             return null;
         }
@@ -432,15 +368,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Sex).Select(x => new { x.Key, Count = x.Count() });
             var sexKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var sexCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Sex = new Chart(width: 500, height: 500)
-                .AddTitle("Sex")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: sexKeys,
-                    yValues: sexCounts)
-                .Write("png");
+            TempData["dislikeSexKeyData"] = sexKeys;
+            TempData["dislikeSexCountData"] = sexCounts;
 
             return null;
         }
@@ -458,15 +387,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Race).Select(x => new { x.Key, Count = x.Count() });
             var raceKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var raceCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Race = new Chart(width: 500, height: 500)
-                .AddTitle("Race")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: raceKeys,
-                    yValues: raceCounts)
-                .Write("png");
+            TempData["dislikeRaceKeyData"] = raceKeys;
+            TempData["dislikeRaceCountData"] = raceCounts;
 
             return null;
         }
@@ -484,15 +406,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Location).Select(x => new { x.Key, Count = x.Count() });
             var locationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var locationCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Location = new Chart(width: 500, height: 500)
-                .AddTitle("Location")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: locationKeys,
-                    yValues: locationCounts)
-                .Write("png");
+            TempData["dislikeLocationKeyData"] = locationKeys;
+            TempData["dislikeLocationCountData"] = locationCounts;
 
             return null;
         }
@@ -510,15 +425,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Education).Select(x => new { x.Key, Count = x.Count() });
             var educationKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var educationCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Education = new Chart(width: 500, height: 500)
-                .AddTitle("Education")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: educationKeys,
-                    yValues: educationCounts)
-                .Write("png");
+            TempData["dislikeEducationKeyData"] = educationKeys;
+            TempData["dislikeEducationCountData"] = educationCounts;
 
             return null;
         }
@@ -536,15 +444,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.Profession).Select(x => new { x.Key, Count = x.Count() });
             var professionKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var professionCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Profession = new Chart(width: 500, height: 500)
-                .AddTitle("Profession")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: professionKeys,
-                    yValues: professionCounts)
-                .Write("png");
+            TempData["dislikeProfessionKeyData"] = professionKeys;
+            TempData["dislikeProfessionCountData"] = professionCounts;
 
             return null;
         }
@@ -562,15 +463,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.MaritalStatus).Select(x => new { x.Key, Count = x.Count() });
             var maritalStatusKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var maritalStatusCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart Locations = new Chart(width: 500, height: 500)
-                .AddTitle("Marital Status")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: maritalStatusKeys,
-                    yValues: maritalStatusCounts)
-                .Write("png");
+            TempData["dislikeMaritalStatusKeyData"] = maritalStatusKeys;
+            TempData["dislikeMaritalStatusCountData"] = maritalStatusCounts;
 
             return null;
         }
@@ -588,15 +482,8 @@ namespace PhotoCritic.Controllers
             var keyCountPair = ListOfDislikers.ToList().GroupBy(x => x.IncomeLevel).Select(x => new { x.Key, Count = x.Count() });
             var incomeLevelKeys = keyCountPair.Select(x => x.Key.Name).ToArray();
             var incomeLevelCounts = keyCountPair.Select(x => x.Count).ToArray();
-
-            Chart IncomeLevel = new Chart(width: 500, height: 500)
-                .AddTitle("Income Level")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: incomeLevelKeys,
-                    yValues: incomeLevelCounts)
-                .Write("png");
+            TempData["dislikeIncomeLevelKeyData"] = incomeLevelKeys;
+            TempData["dislikeIncomeLevelCountData"] = incomeLevelCounts;
 
             return null;
         }
@@ -697,26 +584,30 @@ namespace PhotoCritic.Controllers
 
             var countOfFilteredLikers = photoLikeOpinionatedIndividuals.Count();
             var countOfFilteredDislikers = photoDislikeOpinionatedIndividuals.Count();
-            ViewBag.chartYValues = new int[2] { countOfFilteredLikers, countOfFilteredDislikers };
+            var yValues = new int[2] { countOfFilteredLikers, countOfFilteredDislikers };
+            var xValues = new string[2] { "Like", "Dislike" };
+
+            TempData["chartYValues"] = yValues;
+            TempData["chartXValues"] = xValues;
 
             return View();
         }
 
-        public ActionResult GetChartData(string data)
-        {
-            string[] newData = System.Web.Helpers.Json.Decode<string[]>(data);
+        //public ActionResult GetChartData(string data)
+        //{
+        //    string[] newData = System.Web.Helpers.Json.Decode<string[]>(data);
 
-            Chart Filtered = new Chart(width: 700, height: 700)
-                .AddTitle("Results")
-                .AddLegend()
-                .AddSeries(
-                    chartType: "pie",
-                    xValue: new[] { "Like", "Dislike" },
-                    yValues: newData)
-                .Write("png");
+        //    Chart Filtered = new Chart(width: 700, height: 700)
+        //        .AddTitle("Results")
+        //        .AddLegend()
+        //        .AddSeries(
+        //            chartType: "pie",
+        //            xValue: new[] { "Like", "Dislike" },
+        //            yValues: newData)
+        //        .Write("png");
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public ActionResult Compare(string compareChoice)
         {

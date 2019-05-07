@@ -8,7 +8,208 @@
     ViewBag.Title = "Dislikes";
 }
 
-<h2>Demographic breakdown</h2> <h4>of those who disliked this photo:</h4>
+@Html.Action("GetAgeChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetSexChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetRaceChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetLocationChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetEducationChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetProfessionChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetMaritalStatusChartDataDislike", "Photos", new { id = Model.Id })
+@Html.Action("GetIncomeLevelChartDataDislike", "Photos", new { id = Model.Id })
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawAgeChart);
+    google.charts.setOnLoadCallback(drawSexChart);
+    google.charts.setOnLoadCallback(drawRaceChart);
+    google.charts.setOnLoadCallback(drawLocationChart);
+    google.charts.setOnLoadCallback(drawEducationChart);
+    google.charts.setOnLoadCallback(drawProfessionChart);
+    google.charts.setOnLoadCallback(drawMaritalStatusChart);
+    google.charts.setOnLoadCallback(drawIncomeLevelChart);
+
+            function drawAgeChart() {
+
+                var ages = @Html.Raw(Json.Encode(TempData["dislikeAgeKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeAgeCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Ages');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < ages.length; i++) {
+                    data.addRow([ages[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Age',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_age'));
+                chart.draw(data, options);
+            }
+
+            function drawSexChart() {
+
+                var sexes = @Html.Raw(Json.Encode(TempData["dislikeSexKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeSexCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Sexes');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < sexes.length; i++) {
+                    data.addRow([sexes[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Sex',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_sex'));
+                chart.draw(data, options);
+            }
+
+            function drawRaceChart() {
+
+                var races = @Html.Raw(Json.Encode(TempData["dislikeRaceKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeRaceCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Races');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < races.length; i++) {
+                    data.addRow([races[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Race',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_race'));
+                chart.draw(data, options);
+            }
+
+            function drawLocationChart() {
+
+                var locations = @Html.Raw(Json.Encode(TempData["dislikeLocationKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeLocationCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Locations');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < locations.length; i++) {
+                    data.addRow([locations[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Location',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_location'));
+                chart.draw(data, options);
+            }
+
+            function drawEducationChart() {
+
+                var educations = @Html.Raw(Json.Encode(TempData["dislikeEducationKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeEducationCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Educations');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < educations.length; i++) {
+                    data.addRow([educations[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Education',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_education'));
+                chart.draw(data, options);
+            }
+
+            function drawProfessionChart() {
+
+                var professions = @Html.Raw(Json.Encode(TempData["dislikeProfessionKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeProfessionCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Professions');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < professions.length; i++) {
+                    data.addRow([professions[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Profession',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_profession'));
+                chart.draw(data, options);
+            }
+
+            function drawMaritalStatusChart() {
+
+                var maritalStatuses = @Html.Raw(Json.Encode(TempData["dislikeMaritalStatusKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeMaritalStatusCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'MaritalStatuses');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < maritalStatuses.length; i++) {
+                    data.addRow([maritalStatuses[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Marital Status',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_maritalStatus'));
+                chart.draw(data, options);
+            }
+
+            function drawIncomeLevelChart() {
+
+                var incomeLevels = @Html.Raw(Json.Encode(TempData["dislikeIncomeLevelKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["dislikeIncomeLevelCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'IncomeLevels');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < incomeLevels.length; i++) {
+                    data.addRow([incomeLevels[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Income Level',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_incomeLevel'));
+                chart.draw(data, options);
+            }
+
+</script>
+
+<h2>Demographic breakdown</h2>
+<h4>of those who disliked this photo:</h4>
 
 <div class="row">
     <div class="col-md-6">
@@ -27,16 +228,18 @@
 <div class="row">
     <a href="@Url.Action("DislikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default btn-block btn-lg">View Feedback</a>
 </div>
+
 <br />
+
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetAgeChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_age"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetSexChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_sex"></div>
         </p>
     </div>
 </div>
@@ -44,25 +247,12 @@
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetRaceChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_race"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetLocationChartDataDislike", new { id = Model.Id})" />
-        </p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <p>
-            <img src="@Url.Action("GetEducationChartDataDislike", new { id = Model.Id})" />
-        </p>
-    </div>
-    <div class="col-md-6">
-        <p>
-            <img src="@Url.Action("GetProfessionChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_location"></div>
         </p>
     </div>
 </div>
@@ -70,12 +260,25 @@
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetMaritalStatusChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_education"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetIncomeLevelChartDataDislike", new { id = Model.Id})" />
+            <div id="chart_div_profession"></div>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <div id="chart_div_maritalStatus"></div>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <div id="chart_div_incomeLevel"></div>
         </p>
     </div>
 </div>

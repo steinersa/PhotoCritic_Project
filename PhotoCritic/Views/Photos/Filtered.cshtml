@@ -13,23 +13,52 @@
 <br />
 <h6>Select the demographic of your choosing!</h6>
 
-        <p>
-            @using (Html.BeginForm())
-            {
-            <p>
-                Age: @Html.DropDownList("ageSelection", "All") <br />
-                Sex: @Html.DropDownList("sexSelection", "All") <br />
-                Race: @Html.DropDownList("RaceSelection", "All") <br />
-                Location: @Html.DropDownList("locationSelection", "All") <br />
-                Education: @Html.DropDownList("educationSelection", "All") <br />
-                Profession: @Html.DropDownList("professionSelection", "All") <br />
-                Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
-                Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
-                <input type="submit" value="Filter" />
-            </p>
-        }
-            </p>
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Age: @Html.DropDownList("ageSelection", "All") <br />
+        Sex: @Html.DropDownList("sexSelection", "All") <br />
+        Race: @Html.DropDownList("RaceSelection", "All") <br />
+        Location: @Html.DropDownList("locationSelection", "All") <br />
+        Education: @Html.DropDownList("educationSelection", "All") <br />
+        Profession: @Html.DropDownList("professionSelection", "All") <br />
+        Marital Status: @Html.DropDownList("maritalStatusSelection", "All") <br />
+        Income Level: @Html.DropDownList("incomeLevelSelection", "All") <br />
+        <input type="submit" value="Filter" />
+    </p>
+}
+    </p>
 
     <div class="row" style="width: 100%; float:none">
-        <img src="@Url.Action("GetChartData", "Photos", new { data = Json.Encode(ViewBag.chartYValues) })" />
+        <div id="chart_div_filter"></div>
     </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawFilterChart);
+
+            function drawFilterChart() {
+
+                var category = @Html.Raw(Json.Encode(TempData["chartXValues"]));
+                var counts = @Html.Raw(Json.Encode(TempData["chartYValues"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Category');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < category.length; i++) {
+                    data.addRow([category[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Results',
+                    'width': 1000,
+                    'height': 900
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_filter'));
+                chart.draw(data, options);
+    }
+</script>

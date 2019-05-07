@@ -8,7 +8,209 @@
     ViewBag.Title = "Likes";
 }
 
-<h2>Demographic breakdown</h2> <h4>of those who liked this photo:</h4>
+@Html.Action("GetAgeChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetSexChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetRaceChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetLocationChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetEducationChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetProfessionChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetMaritalStatusChartDataLike", "Photos", new { id = Model.Id })
+@Html.Action("GetIncomeLevelChartDataLike", "Photos", new { id = Model.Id })
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawAgeChart);
+    google.charts.setOnLoadCallback(drawSexChart);
+    google.charts.setOnLoadCallback(drawRaceChart);
+    google.charts.setOnLoadCallback(drawLocationChart);
+    google.charts.setOnLoadCallback(drawEducationChart);
+    google.charts.setOnLoadCallback(drawProfessionChart);
+    google.charts.setOnLoadCallback(drawMaritalStatusChart);
+    google.charts.setOnLoadCallback(drawIncomeLevelChart);
+
+            function drawAgeChart() {
+
+                var ages = @Html.Raw(Json.Encode(TempData["ageKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["ageCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Ages');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < ages.length; i++) {
+                    data.addRow([ages[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Age',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_age'));
+                chart.draw(data, options);
+            }
+
+            function drawSexChart() {
+
+                var sexes = @Html.Raw(Json.Encode(TempData["sexKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["sexCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Sexes');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < sexes.length; i++) {
+                    data.addRow([sexes[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Sex',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_sex'));
+                chart.draw(data, options);
+            }
+
+            function drawRaceChart() {
+
+                var races = @Html.Raw(Json.Encode(TempData["raceKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["raceCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Races');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < races.length; i++) {
+                    data.addRow([races[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Race',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_race'));
+                chart.draw(data, options);
+            }
+
+            function drawLocationChart() {
+
+                var locations = @Html.Raw(Json.Encode(TempData["locationKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["locationCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Locations');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < locations.length; i++) {
+                    data.addRow([locations[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Location',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_location'));
+                chart.draw(data, options);
+            }
+
+            function drawEducationChart() {
+
+                var educations = @Html.Raw(Json.Encode(TempData["educationKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["educationCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Educations');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < educations.length; i++) {
+                    data.addRow([educations[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Education',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_education'));
+                chart.draw(data, options);
+            }
+
+            function drawProfessionChart() {
+
+                var professions = @Html.Raw(Json.Encode(TempData["professionKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["professionCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Professions');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < professions.length; i++) {
+                    data.addRow([professions[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Profession',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_profession'));
+                chart.draw(data, options);
+            }
+
+            function drawMaritalStatusChart() {
+
+                var maritalStatuses = @Html.Raw(Json.Encode(TempData["maritalStatusKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["maritalStatusCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'MaritalStatuses');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < maritalStatuses.length; i++) {
+                    data.addRow([maritalStatuses[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Marital Status',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_maritalStatus'));
+                chart.draw(data, options);
+            }
+
+            function drawIncomeLevelChart() {
+
+                var incomeLevels = @Html.Raw(Json.Encode(TempData["incomeLevelKeyData"]));
+                var counts = @Html.Raw(Json.Encode(TempData["incomeLevelCountData"]));
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'IncomeLevels');
+                data.addColumn('number', 'Count');
+                for (i = 0; i < incomeLevels.length; i++) {
+                    data.addRow([incomeLevels[i], counts[i]]);
+                }
+
+                var options = {
+                    'title': 'Income Level',
+                    'width': 700,
+                    'height': 600
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div_incomeLevel'));
+                chart.draw(data, options);
+            }
+
+</script>
+
+
+<h2>Demographic breakdown</h2>
+<h4>of those who liked this photo:</h4>
 
 <div class="row">
     <div class="col-md-6">
@@ -22,23 +224,23 @@
     </div>
 </div>
 
-<br/>
+<br />
 
 <div class="row">
     <a href="@Url.Action("LikesCommentsReasons", "Photos", new { id = Model.Id })" class="btn btn-default btn-block btn-lg">View Feedback</a>
 </div>
 
-<br/>
+<br />
 
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetAgeChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_age"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetSexChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_sex"></div>
         </p>
     </div>
 </div>
@@ -46,25 +248,12 @@
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetRaceChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_race"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetLocationChartDataLike", new { id = Model.Id})" />
-        </p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <p>
-            <img src="@Url.Action("GetEducationChartDataLike", new { id = Model.Id})" />
-        </p>
-    </div>
-    <div class="col-md-6">
-        <p>
-            <img src="@Url.Action("GetProfessionChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_location"></div>
         </p>
     </div>
 </div>
@@ -72,12 +261,25 @@
 <div class="row">
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetMaritalStatusChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_education"></div>
         </p>
     </div>
     <div class="col-md-6">
         <p>
-            <img src="@Url.Action("GetIncomeLevelChartDataLike", new { id = Model.Id})" />
+            <div id="chart_div_profession"></div>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <div id="chart_div_maritalStatus"></div>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <div id="chart_div_incomeLevel"></div>
         </p>
     </div>
 </div>
