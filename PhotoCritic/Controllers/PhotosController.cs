@@ -171,9 +171,9 @@ namespace PhotoCritic.Controllers
                 ListOfLikers.Add(gettingPerson);
             }
 
-            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() }); //key value pairs
-            var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); //just the keys (distinct ages)
-            var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); //just the values (how many fall in each age group)
+            var keyCountPair = ListOfLikers.ToList().GroupBy(x => x.Age).Select(x => new { x.Key, Count = x.Count() }); 
+            var ageKeys = keyCountPair.Select(x => x.Key.Name).ToArray(); 
+            var ageCounts = keyCountPair.Select(x => x.Count).ToArray(); 
             TempData["ageKeyData"] = ageKeys;
             TempData["ageCountData"] = ageCounts;
 
@@ -592,22 +592,6 @@ namespace PhotoCritic.Controllers
 
             return View();
         }
-
-        //public ActionResult GetChartData(string data)
-        //{
-        //    string[] newData = System.Web.Helpers.Json.Decode<string[]>(data);
-
-        //    Chart Filtered = new Chart(width: 700, height: 700)
-        //        .AddTitle("Results")
-        //        .AddLegend()
-        //        .AddSeries(
-        //            chartType: "pie",
-        //            xValue: new[] { "Like", "Dislike" },
-        //            yValues: newData)
-        //        .Write("png");
-
-        //    return null;
-        //}
 
         public ActionResult Compare(string compareChoice)
         {
